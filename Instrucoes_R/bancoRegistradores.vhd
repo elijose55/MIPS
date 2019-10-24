@@ -40,8 +40,23 @@ architecture comportamento of bancoRegistradores is
     subtype palavra_t is std_logic_vector((larguraBarramentoDados-1) downto 0);
     type memoria_t is array(2**larguraEndBancoRegs-1 downto 0) of palavra_t;
 
+	  function initMemory
+        return memoria_t is variable tmp : memoria_t := (others => (others => '0'));
+  begin
+        -- Inicializa os endereços:
+
+        tmp(9) := x"00000005";
+        tmp(10) := x"00000004";
+        tmp(11) := x"00000002";
+        tmp(12) := x"00000001";
+--        tmp(13) := x"46";
+--        tmp(14) := x"47";
+--        tmp(15) := x"55";
+        return tmp;
+    end initMemory;	 
+	 
     -- Declaracao dos registradores:
-    shared variable registrador : memoria_t;
+    shared variable registrador : memoria_t := initMemory;
 
 begin
     process(clk) is

@@ -17,7 +17,7 @@ entity cpu is
     (
 	 	 LEDG : out std_logic_vector(6 downto 0);
 
-        clk			            : IN  STD_LOGIC;
+        CLOCK_50			            : IN  STD_LOGIC;
 --        barramentoDadosEntrada	: IN STD_LOGIC_VECTOR(larguraBarramentoDados-1 DOWNTO 0);
 --        barramentoEnderecos		: OUT STD_LOGIC_VECTOR(larguraBarramentoEnderecos-1 DOWNTO 0);
 	    barramentoDadosSaida	: OUT STD_LOGIC_VECTOR(larguraBarramentoDados-1 DOWNTO 0);
@@ -32,7 +32,7 @@ architecture estrutural of cpu is
 	-- Declaração de sinais auxiliares
 	signal ROM_instruction : STD_LOGIC_VECTOR(larguraBarramentoDados - 1 downto 0);
 	signal regS_out,regT_out, ULA_out,dadoEscritaD, Somador_out, PC_out : STD_LOGIC_VECTOR(larguraBarramentoDados-1 DOWNTO 0);
-   signal wrReg : STD_LOGIC;
+   signal clk : STD_LOGIC;
 	signal opULA : STD_LOGIC_VECTOR(3 downto 0);
 
 	
@@ -41,9 +41,10 @@ architecture estrutural of cpu is
 begin
 
 	    -- Instanciacao da ROM
-	 ROM : entity work.romMif
+	 ROM : entity work.ROM
 	 generic map (dataWidth => larguraBarramentoDados, addrWidth => larguraBarramentoDados)
 	 port map(
+	 clk => clk,
 	 Dado => ROM_instruction,
 	 Endereco => PC_out
 	 );
@@ -76,11 +77,21 @@ begin
         clk	        => clk,
 		input			=> Somador_out,
         output	    => PC_out,
-		  enable => KEY(0),
-		  reset => KEY(1)
+		  reset => KEY(0)
 		  
     );
 
+	     -- Instanciação do Program Counter
+    edgeDetectorClock : entity work.edgeDetector 
+
+	port map
+	(
+        clk	        => CLOCK_50,
+		entrada			=> not KEY(1),
+        saida	    => clk
+		  
+		  
+    );
     
     -- Instanciação de Somador com Constante
     SOMADOR : entity work.somadorConstante 
