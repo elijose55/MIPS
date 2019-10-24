@@ -1,0 +1,28 @@
+Quartus Prime Archive log --	C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/tipoR.qarlog
+
+Archive:	C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/tipoR.qar
+Date:		Thu Oct 24 16:17:10 2019
+Quartus Prime		18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+	=========== Files Selected: ===========
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/PC.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/ROM.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/UC.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/ULA.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/Waveform.vwf
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/Waveform1.vwf
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/Waveform2.vwf
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/bancoRegistradores.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/cpu.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/db/tipoR.cmp.rdb
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/display7Seg.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/edgeDetector.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/somadorConstante.vhd
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/tipoR.qpf
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/tipoR.qsf
+C:/Users/Pedro/Documents/Design/MIPS/Instrucoes_R/topLevel.vhd
+c:/intelfpga_lite/18.1/quartus/bin64/assignment_defaults.qdf
+	======= Total: 17 files to archive =======
+
+	================ Status: ===============
+All files archived successfully.

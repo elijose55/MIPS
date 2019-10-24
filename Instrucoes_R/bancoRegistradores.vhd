@@ -45,11 +45,11 @@ architecture comportamento of bancoRegistradores is
   begin
         -- Inicializa os endereços:
 
-        tmp(9) := x"00000005";
+        tmp(9) := x"00000000";
         tmp(10) := x"00000004";
-        tmp(11) := x"00000002";
-        tmp(12) := x"00000001";
---        tmp(13) := x"46";
+        tmp(11) := x"00000005";
+        tmp(12) := x"00000000";
+        tmp(13) := x"00000000";
 --        tmp(14) := x"47";
 --        tmp(15) := x"55";
         return tmp;
