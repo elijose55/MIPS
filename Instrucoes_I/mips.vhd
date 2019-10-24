@@ -1,22 +1,25 @@
 -- Design de Computadores
--- file: mips.vhd
+-- file: topLevel.vhd
 -- date: 20/09/2019
 -- Autores: Eli Jose e Pedro Azambuja
 library ieee;
 use ieee.std_logic_1164.all;
 
-entity relogio is
+entity mips is
 	generic (
 		larguraBarramentoEnderecos	: natural := 32;
 		larguraBarramentoDados		: natural := 32;
-		quantidadeChaves    		: natural := 18
-		--quantidadeDisplays			: natural := 8
+		quantidadeChaves    		: natural := 18;
+		quantidadeDisplays			: natural := 8;
+		quantidadeBotoes			: natural := 3
     );
 	port
     (
 		CLOCK_50 : IN STD_LOGIC;
 		-- CHAVES
         SW : IN STD_LOGIC_VECTOR(quantidadeChaves-1 downto 0);
+		-- BOTOES
+        KEY : IN STD_LOGIC_VECTOR(quantidadeBotoes-1 downto 0);
 		-- DISPLAYS 7 SEG
 		HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7 : OUT STD_LOGIC_VECTOR(6 downto 0) := "0000000";
 		LEDG : out std_logic_vector(7 downto 0);
@@ -24,30 +27,18 @@ entity relogio is
     );
 end entity;
 
-architecture estrutural of relogio is
+architecture estrutural of mips is
 
 	-- Sinais de barramentos
-	signal barramentoEnderecos		: STD_LOGIC_VECTOR(larguraBarramentoEnderecos-1 DOWNTO 0);
-	signal barramentoDadosEntrada	: STD_LOGIC_VECTOR(larguraBarramentoDados-1 DOWNTO 0);
 	signal barramentoDadosSaida		: STD_LOGIC_VECTOR(larguraBarramentoDados-1 DOWNTO 0);
-	
-	-- Sinais de controle RD/WR
-	signal readEnable				: STD_LOGIC;
-	signal writeEnable				: STD_LOGIC;
+	signal barramentoDadosEntrada		: STD_LOGIC_VECTOR(larguraBarramentoDados-1 DOWNTO 0);
+	signal barramentoEnderecoSaida	: STD_LOGIC_VECTOR(larguraBarramentoEnderecos-1 DOWNTO 0);
 
 	-- Sinais de habilitacao dos componentes
 	signal LCD_US, LCD_DS, LCD_UM, LCD_DM, LCD_UH, LCD_DH, enable_switch	: STD_LOGIC;
-	--signal habilitaChaves			: STD_LOGIC;
-	signal habilita_BT : STD_LOGIC;
 	signal reset: STD_LOGIC;
 	-- Sinais auxiliares
-	signal saidaDivisorGenerico		: STD_LOGIC_VECTOR(7 downto 0);
 	signal switches : std_logic_vector(1 downto 0);
-
-	signal tick, switchesTOcpu : std_logic;
-    signal contador : integer range 0 to 50000001 := 0;
-	signal divisor : natural := 2000000;
-	--signal zera_visor : std_logic_vector(3 downto 0) := '1101';
 	
 begin
 	-- Instanciação da CPU
@@ -55,36 +46,29 @@ begin
 	port map
 	(
 	
-	LEDG => LEDG(6 downto 0),
+		LEDG => LEDG(6 downto 0),
 		clk						=> CLOCK_50,
-        barramentoDadosEntrada	=> barramentoDadosEntrada,
-        barramentoEnderecos		=> barramentoEnderecos,
 		barramentoDadosSaida	=> barramentoDadosSaida,
-		readEnable				=> readEnable,
-		writeEnable				=> writeEnable
+		barramentoDadosEntrada	=> barramentoDadosEntrada,
+		barramentoEnderecoSaida => barramentoEnderecoSaida,
+		SW => SW,
+		KEY => KEY
 		
 	);
 	
-	-- Instanciação do Decodificador de Endereços
-		-- A entidade do decodificador fica a criterio do grupo
-		-- o portmap a seguir serve como exemplo
-	DE : entity work.decoder 
+	-- Instanciação da RAM
+	RAM : entity work.single_port_ram 
 	port map
 	(
-		endereco		=> barramentoEnderecos,
-		readEnable		=> readEnable,
-		writeEnable		=> writeEnable,
-		LCD_US => LCD_US,
-		LCD_DS => LCD_DS,
-		LCD_UM => LCD_UM,
-		LCD_DM => LCD_DM,
-		LCD_UH => LCD_UH,
-		LCD_DH => LCD_DH,
-		IO_TEMPO => habilita_BT,
-		CLEAR_TEMPO => reset,
-		ENABLE_SWITCH => enable_switch
+	
+		addr => barramentoEnderecoSaida,
+		we => SW(4),
+		clk  => CLOCK_50,
+		dado_out	=> barramentoDadosEntrada,
+		dado_in => barramentoDadosSaida
 		
 	);
+	
 
 	-- Instanciação de cada Display
 	DISPLAY2 : entity work.display7Seg 
@@ -153,21 +137,9 @@ begin
 		saida7seg	=> HEX0
 	);
 
-	-- Instanciação das Chaves
-	CHAVES : entity work.switches 
-	generic map (
-        quantidadeChaves	=> quantidadeChaves
-    )
-	port map
-	(
-		SW => SW,
-		saida	=> switches,
-		saida_CPU => switchesTOcpu
-	);
-	barramentoDadosEntrada <= saidaDivisorGenerico when habilita_BT = '1' else ("0000000" & switchesTOcpu) when enable_switch ='1' else "00000000";
+
 	
-LEDR(0) <= switches(0); -- acende se o primeiro switch estiver ativo
-LEDR(1) <= switches(1); -- acende se o segundo switch estiver ativo
-LEDR(17) <= switchesTOcpu; -- acende se o segundo switch estiver ativo
+LEDR(0) <= SW(0); -- acende se o primeiro switch estiver ativo
+LEDR(1) <= SW(1); -- acende se o segundo switch estiver ativo
 
 end architecture;

@@ -20,17 +20,17 @@ entity bancoRegistradores is
     port
     (
         clk        : in std_logic;
---
-        enderecoReg1       : in std_logic_vector((larguraEndBancoRegs-1) downto 0);
-		  enderecoReg2       : in std_logic_vector((larguraEndBancoRegs-1) downto 0);
-		  enderecoReg3       : in std_logic_vector((larguraEndBancoRegs-1) downto 0);
 
---
+        enderecoReg1       : in std_logic_vector((larguraEndBancoRegs-1) downto 0);
+		enderecoReg2       : in std_logic_vector((larguraEndBancoRegs-1) downto 0);
+		enderecoReg3       : in std_logic_vector((larguraEndBancoRegs-1) downto 0);
+
+
         dadoEscritaReg3    : in std_logic_vector((larguraBarramentoDados-1) downto 0);
---
+
         escreveReg3        : in std_logic := '0';
         saidaReg1          : out std_logic_vector((larguraBarramentoDados -1) downto 0);
-		  saidaReg2          : out std_logic_vector((larguraBarramentoDados -1) downto 0)
+		saidaReg2          : out std_logic_vector((larguraBarramentoDados -1) downto 0)
 
     );
 end entity;

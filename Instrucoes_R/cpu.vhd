@@ -1,7 +1,7 @@
 -- Design de Computadores
 -- developed by Pedro Azambuja e Eli Jose
 -- file: cpu.vhd
--- date: date: 08/10/2019
+-- date: 08/10/2019
 library ieee;
 use ieee.std_logic_1164.all;
 

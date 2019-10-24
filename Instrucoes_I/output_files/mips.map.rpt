@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips
-Tue Oct 22 14:41:37 2019
+Thu Oct 24 00:37:54 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,7 +10,31 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. Removed Registers Triggering Further Register Optimizations
+ 10. General Register Statistics
+ 11. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 12. Parameter Settings for User Entity Instance: Top-level Entity: |mips
+ 13. Parameter Settings for User Entity Instance: cpu:CPU
+ 14. Parameter Settings for User Entity Instance: cpu:CPU|rom:ROM
+ 15. Parameter Settings for User Entity Instance: cpu:CPU|bancoRegistradores:BR
+ 16. Parameter Settings for User Entity Instance: cpu:CPU|PC:PC
+ 17. Parameter Settings for User Entity Instance: cpu:CPU|somadorConstante:SC
+ 18. Parameter Settings for User Entity Instance: cpu:CPU|somadorVariavel:SV
+ 19. Parameter Settings for User Entity Instance: cpu:CPU|muxSomador:MUXSOMADOR
+ 20. Parameter Settings for User Entity Instance: cpu:CPU|muxULA:muxULA
+ 21. Parameter Settings for User Entity Instance: cpu:CPU|extensorSinal:EXTENSOR
+ 22. Parameter Settings for User Entity Instance: cpu:CPU|ULA:ULA
+ 23. Parameter Settings for User Entity Instance: single_port_ram:RAM
+ 24. Port Connectivity Checks: "display7Seg:DISPLAY0"
+ 25. Port Connectivity Checks: "display7Seg:DISPLAY1"
+ 26. Port Connectivity Checks: "cpu:CPU|rom:ROM"
+ 27. Post-Synthesis Netlist Statistics for Top Partition
+ 28. Elapsed Time Per Partition
+ 29. Analysis & Synthesis Messages
 
 
 
@@ -33,22 +57,27 @@ refer to the applicable agreement for further details.
 
 
 
-+---------------------------------------------------------------------------+
-; Analysis & Synthesis Summary                                              ;
-+-----------------------------+---------------------------------------------+
-; Analysis & Synthesis Status ; Failed - Tue Oct 22 14:41:37 2019           ;
-; Quartus Prime Version       ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
-; Revision Name               ; mips                                        ;
-; Top-level Entity Name       ; mips                                        ;
-; Family                      ; Cyclone V                                   ;
-; Logic utilization (in ALMs) ; N/A until Partition Merge                   ;
-; Total registers             ; N/A until Partition Merge                   ;
-; Total pins                  ; N/A until Partition Merge                   ;
-; Total virtual pins          ; N/A until Partition Merge                   ;
-; Total block memory bits     ; N/A until Partition Merge                   ;
-; Total PLLs                  ; N/A until Partition Merge                   ;
-; Total DLLs                  ; N/A until Partition Merge                   ;
-+-----------------------------+---------------------------------------------+
++-------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                  ;
++---------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Thu Oct 24 00:37:53 2019       ;
+; Quartus Prime Version           ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                   ; mips                                        ;
+; Top-level Entity Name           ; mips                                        ;
+; Family                          ; Cyclone V                                   ;
+; Logic utilization (in ALMs)     ; N/A                                         ;
+; Total registers                 ; 69                                          ;
+; Total pins                      ; 104                                         ;
+; Total virtual pins              ; 0                                           ;
+; Total block memory bits         ; 0                                           ;
+; Total DSP Blocks                ; 0                                           ;
+; Total HSSI RX PCSs              ; 0                                           ;
+; Total HSSI PMA RX Deserializers ; 0                                           ;
+; Total HSSI TX PCSs              ; 0                                           ;
+; Total HSSI PMA TX Serializers   ; 0                                           ;
+; Total PLLs                      ; 0                                           ;
+; Total DLLs                      ; 0                                           ;
++---------------------------------+---------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------+
@@ -148,11 +177,1311 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-4         ;   0.0%      ;
 +----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                   ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                            ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+; bancoRegistradores.vhd           ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/bancoRegistradores.vhd ;         ;
+; PC.vhd                           ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/PC.vhd                 ;         ;
+; ROM.vhd                          ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd                ;         ;
+; ULA.vhd                          ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ULA.vhd                ;         ;
+; single_port_ram.vhd              ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd    ;         ;
+; mips.vhd                         ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd               ;         ;
+; extensorSinal.vhd                ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/extensorSinal.vhd      ;         ;
+; muxULA.vhd                       ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/muxULA.vhd             ;         ;
+; muxSomador.vhd                   ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/muxSomador.vhd         ;         ;
+; somadorConstante.vhd             ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/somadorConstante.vhd   ;         ;
+; somadorVariavel.vhd              ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/somadorVariavel.vhd    ;         ;
+; cpu.vhd                          ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd                ;         ;
+; portaAND.vhd                     ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/portaAND.vhd           ;         ;
+; display7Seg.vhd                  ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/display7Seg.vhd        ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------+---------+
+
+
++--------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                  ;
++---------------------------------------------+----------------+
+; Resource                                    ; Usage          ;
++---------------------------------------------+----------------+
+; Estimate of Logic utilization (ALMs needed) ; 58             ;
+;                                             ;                ;
+; Combinational ALUT usage for logic          ; 99             ;
+;     -- 7 input functions                    ; 0              ;
+;     -- 6 input functions                    ; 8              ;
+;     -- 5 input functions                    ; 13             ;
+;     -- 4 input functions                    ; 3              ;
+;     -- <=3 input functions                  ; 75             ;
+;                                             ;                ;
+; Dedicated logic registers                   ; 69             ;
+;                                             ;                ;
+; I/O pins                                    ; 104            ;
+;                                             ;                ;
+; Total DSP Blocks                            ; 0              ;
+;                                             ;                ;
+; Maximum fan-out node                        ; CLOCK_50~input ;
+; Maximum fan-out                             ; 69             ;
+; Total fan-out                               ; 691            ;
+; Average fan-out                             ; 1.84           ;
++---------------------------------------------+----------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                              ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                 ; Entity Name        ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+--------------------+--------------+
+; |mips                         ; 99 (2)              ; 69 (0)                    ; 0                 ; 0          ; 104  ; 0            ; |mips                               ; mips               ; work         ;
+;    |cpu:CPU|                  ; 97 (0)              ; 69 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU                       ; cpu                ; work         ;
+;       |PC:PC|                 ; 6 (6)               ; 5 (5)                     ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU|PC:PC                 ; PC                 ; work         ;
+;       |ULA:ULA|               ; 32 (32)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU|ULA:ULA               ; ULA                ; work         ;
+;       |bancoRegistradores:BR| ; 32 (32)             ; 64 (64)                   ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU|bancoRegistradores:BR ; bancoRegistradores ; work         ;
+;       |portaAND:PORTA_AND|    ; 17 (17)             ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU|portaAND:PORTA_AND    ; portaAND           ; work         ;
+;       |somadorConstante:SC|   ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU|somadorConstante:SC   ; somadorConstante   ; work         ;
+;       |somadorVariavel:SV|    ; 5 (5)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |mips|cpu:CPU|somadorVariavel:SV    ; somadorVariavel    ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++----------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                           ;
++------------------------------------------------+---------------------------------------------+
+; Register name                                  ; Reason for Removal                          ;
++------------------------------------------------+---------------------------------------------+
+; display7Seg:DISPLAY0|saida7seg[0..6]           ; Stuck at VCC due to stuck port data_in      ;
+; display7Seg:DISPLAY1|saida7seg[0..6]           ; Stuck at VCC due to stuck port data_in      ;
+; cpu:CPU|PC:PC|toout[0,1]                       ; Stuck at GND due to stuck port data_in      ;
+; display7Seg:DISPLAY2|saida7seg[0..6]           ; Stuck at GND due to stuck port clock_enable ;
+; display7Seg:DISPLAY3|saida7seg[0..6]           ; Stuck at GND due to stuck port clock_enable ;
+; display7Seg:DISPLAY4|saida7seg[0..6]           ; Stuck at GND due to stuck port clock_enable ;
+; display7Seg:DISPLAY5|saida7seg[0..6]           ; Stuck at GND due to stuck port clock_enable ;
+; display7Seg:DISPLAY6|saida7seg[0..6]           ; Stuck at GND due to stuck port clock_enable ;
+; display7Seg:DISPLAY7|saida7seg[0..6]           ; Stuck at GND due to stuck port clock_enable ;
+; cpu:CPU|bancoRegistradores:BR|registrador~38   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~39   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~40   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~41   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~42   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~43   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~44   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~45   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~46   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~47   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~48   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~49   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~50   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~51   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~52   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~53   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~54   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~55   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~56   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~57   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~58   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~59   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~60   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~61   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~62   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~63   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~64   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~65   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~66   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~67   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~68   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~69   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~70   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~71   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~72   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~73   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~74   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~75   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~76   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~77   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~78   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~79   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~80   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~81   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~82   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~83   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~84   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~85   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~86   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~87   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~88   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~89   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~90   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~91   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~92   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~93   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~94   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~95   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~96   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~97   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~98   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~99   ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~100  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~101  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~102  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~103  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~104  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~105  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~106  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~107  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~108  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~109  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~110  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~111  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~112  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~113  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~114  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~115  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~116  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~117  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~118  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~119  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~120  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~121  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~122  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~123  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~124  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~125  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~126  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~127  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~128  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~129  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~130  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~131  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~132  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~133  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~134  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~135  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~136  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~137  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~138  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~139  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~140  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~141  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~142  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~143  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~144  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~145  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~146  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~147  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~148  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~149  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~150  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~151  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~152  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~153  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~154  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~155  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~156  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~157  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~158  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~159  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~160  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~161  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~162  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~163  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~164  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~165  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~166  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~167  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~168  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~169  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~170  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~171  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~172  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~173  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~174  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~175  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~176  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~177  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~178  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~179  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~180  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~181  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~182  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~183  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~184  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~185  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~186  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~187  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~188  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~189  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~190  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~191  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~192  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~193  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~194  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~195  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~196  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~197  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~198  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~199  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~200  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~201  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~202  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~203  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~204  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~205  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~206  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~207  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~208  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~209  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~210  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~211  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~212  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~213  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~214  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~215  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~216  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~217  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~218  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~219  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~220  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~221  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~222  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~223  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~224  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~225  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~226  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~227  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~228  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~229  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~230  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~231  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~232  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~233  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~234  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~235  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~236  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~237  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~238  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~239  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~240  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~241  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~242  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~243  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~244  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~245  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~246  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~247  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~248  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~249  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~250  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~251  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~252  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~253  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~254  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~255  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~256  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~257  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~258  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~259  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~260  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~261  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~262  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~263  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~264  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~265  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~266  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~267  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~268  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~269  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~270  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~271  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~272  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~273  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~274  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~275  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~276  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~277  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~278  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~279  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~280  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~281  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~282  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~283  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~284  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~285  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~286  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~287  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~288  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~289  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~290  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~291  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~292  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~293  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~358  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~359  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~360  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~361  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~362  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~363  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~364  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~365  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~366  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~367  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~368  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~369  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~370  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~371  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~372  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~373  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~374  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~375  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~376  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~377  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~378  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~379  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~380  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~381  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~382  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~383  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~384  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~385  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~386  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~387  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~388  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~389  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~390  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~391  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~392  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~393  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~394  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~395  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~396  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~397  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~398  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~399  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~400  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~401  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~402  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~403  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~404  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~405  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~406  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~407  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~408  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~409  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~410  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~411  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~412  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~413  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~414  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~415  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~416  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~417  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~418  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~419  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~420  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~421  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~422  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~423  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~424  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~425  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~426  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~427  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~428  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~429  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~430  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~431  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~432  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~433  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~434  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~435  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~436  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~437  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~438  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~439  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~440  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~441  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~442  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~443  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~444  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~445  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~446  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~447  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~448  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~449  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~450  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~451  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~452  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~453  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~454  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~455  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~456  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~457  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~458  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~459  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~460  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~461  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~462  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~463  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~464  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~465  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~466  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~467  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~468  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~469  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~470  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~471  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~472  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~473  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~474  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~475  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~476  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~477  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~478  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~479  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~480  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~481  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~482  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~483  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~484  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~485  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~486  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~487  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~488  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~489  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~490  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~491  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~492  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~493  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~494  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~495  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~496  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~497  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~498  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~499  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~500  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~501  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~502  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~503  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~504  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~505  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~506  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~507  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~508  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~509  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~510  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~511  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~512  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~513  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~514  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~515  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~516  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~517  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~518  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~519  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~520  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~521  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~522  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~523  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~524  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~525  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~526  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~527  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~528  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~529  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~530  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~531  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~532  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~533  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~534  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~535  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~536  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~537  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~538  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~539  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~540  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~541  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~542  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~543  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~544  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~545  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~546  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~547  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~548  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~549  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~550  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~551  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~552  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~553  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~554  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~555  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~556  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~557  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~558  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~559  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~560  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~561  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~562  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~563  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~564  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~565  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~566  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~567  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~568  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~569  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~570  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~571  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~572  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~573  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~574  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~575  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~576  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~577  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~578  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~579  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~580  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~581  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~582  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~583  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~584  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~585  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~586  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~587  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~588  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~589  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~590  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~591  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~592  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~593  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~594  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~595  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~596  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~597  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~598  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~599  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~600  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~601  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~602  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~603  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~604  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~605  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~606  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~607  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~608  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~609  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~610  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~611  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~612  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~613  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~614  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~615  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~616  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~617  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~618  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~619  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~620  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~621  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~622  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~623  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~624  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~625  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~626  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~627  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~628  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~629  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~630  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~631  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~632  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~633  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~634  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~635  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~636  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~637  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~638  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~639  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~640  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~641  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~642  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~643  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~644  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~645  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~646  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~647  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~648  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~649  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~650  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~651  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~652  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~653  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~654  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~655  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~656  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~657  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~658  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~659  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~660  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~661  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~662  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~663  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~664  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~665  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~666  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~667  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~668  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~669  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~670  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~671  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~672  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~673  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~674  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~675  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~676  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~677  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~678  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~679  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~680  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~681  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~682  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~683  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~684  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~685  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~686  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~687  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~688  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~689  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~690  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~691  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~692  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~693  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~694  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~695  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~696  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~697  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~698  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~699  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~700  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~701  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~702  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~703  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~704  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~705  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~706  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~707  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~708  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~709  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~710  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~711  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~712  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~713  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~714  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~715  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~716  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~717  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~718  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~719  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~720  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~721  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~722  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~723  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~724  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~725  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~726  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~727  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~728  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~729  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~730  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~731  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~732  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~733  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~734  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~735  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~736  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~737  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~738  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~739  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~740  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~741  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~742  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~743  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~744  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~745  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~746  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~747  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~748  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~749  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~750  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~751  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~752  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~753  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~754  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~755  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~756  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~757  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~758  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~759  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~760  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~761  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~762  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~763  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~764  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~765  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~766  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~767  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~768  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~769  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~770  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~771  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~772  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~773  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~774  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~775  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~776  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~777  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~778  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~779  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~780  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~781  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~782  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~783  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~784  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~785  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~786  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~787  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~788  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~789  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~790  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~791  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~792  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~793  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~794  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~795  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~796  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~797  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~798  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~799  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~800  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~801  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~802  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~803  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~804  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~805  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~806  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~807  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~808  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~809  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~810  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~811  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~812  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~813  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~814  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~815  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~816  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~817  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~818  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~819  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~820  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~821  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~822  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~823  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~824  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~825  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~826  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~827  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~828  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~829  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~830  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~831  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~832  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~833  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~834  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~835  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~836  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~837  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~838  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~839  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~840  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~841  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~842  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~843  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~844  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~845  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~846  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~847  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~848  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~849  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~850  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~851  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~852  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~853  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~854  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~855  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~856  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~857  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~858  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~859  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~860  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~861  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~862  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~863  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~864  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~865  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~866  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~867  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~868  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~869  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~870  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~871  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~872  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~873  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~874  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~875  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~876  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~877  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~878  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~879  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~880  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~881  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~882  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~883  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~884  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~885  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~886  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~887  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~888  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~889  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~890  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~891  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~892  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~893  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~894  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~895  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~896  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~897  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~898  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~899  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~900  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~901  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~902  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~903  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~904  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~905  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~906  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~907  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~908  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~909  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~910  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~911  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~912  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~913  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~914  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~915  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~916  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~917  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~918  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~919  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~920  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~921  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~922  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~923  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~924  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~925  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~926  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~927  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~928  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~929  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~930  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~931  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~932  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~933  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~934  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~935  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~936  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~937  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~938  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~939  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~940  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~941  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~942  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~943  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~944  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~945  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~946  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~947  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~948  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~949  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~950  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~951  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~952  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~953  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~954  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~955  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~956  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~957  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~958  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~959  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~960  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~961  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~962  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~963  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~964  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~965  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~998  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~999  ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1000 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1001 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1002 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1003 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1004 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1005 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1006 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1007 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1008 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1009 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1010 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1011 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1012 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1013 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1014 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1015 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1016 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1017 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1018 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1019 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1020 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1021 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1022 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1023 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1024 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1025 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1026 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1027 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1028 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1029 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1030 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1031 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1032 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1033 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1034 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1035 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1036 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1037 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1038 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1039 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1040 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1041 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1042 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1043 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1044 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1045 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1046 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1047 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1048 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1049 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1050 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1051 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1052 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1053 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1054 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1055 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1056 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1057 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1058 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1059 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1060 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~1061 ; Lost fanout                                 ;
+; cpu:CPU|bancoRegistradores:BR|registrador~997  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~996  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~995  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~994  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~993  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~992  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~991  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~990  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~989  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~988  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~987  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~986  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~985  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~984  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~983  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~982  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~981  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~980  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~979  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~978  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~977  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~976  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~975  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~974  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~973  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~972  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~971  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~970  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~969  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~968  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~967  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|bancoRegistradores:BR|registrador~966  ; Stuck at GND due to stuck port data_in      ;
+; cpu:CPU|PC:PC|toout[7..31]                     ; Lost fanout                                 ;
+; Total Number of Removed Registers = 1043       ;                                             ;
++------------------------------------------------+---------------------------------------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                                                ;
++-----------------------------------+---------------------------+----------------------------------------------------------------------------+
+; Register name                     ; Reason for Removal        ; Registers Removed due to This Register                                     ;
++-----------------------------------+---------------------------+----------------------------------------------------------------------------+
+; cpu:CPU|PC:PC|toout[31]           ; Lost Fanouts              ; cpu:CPU|PC:PC|toout[30], cpu:CPU|PC:PC|toout[29], cpu:CPU|PC:PC|toout[28], ;
+;                                   ;                           ; cpu:CPU|PC:PC|toout[27], cpu:CPU|PC:PC|toout[26], cpu:CPU|PC:PC|toout[24], ;
+;                                   ;                           ; cpu:CPU|PC:PC|toout[23], cpu:CPU|PC:PC|toout[21], cpu:CPU|PC:PC|toout[20], ;
+;                                   ;                           ; cpu:CPU|PC:PC|toout[18], cpu:CPU|PC:PC|toout[17], cpu:CPU|PC:PC|toout[15], ;
+;                                   ;                           ; cpu:CPU|PC:PC|toout[14], cpu:CPU|PC:PC|toout[12], cpu:CPU|PC:PC|toout[11], ;
+;                                   ;                           ; cpu:CPU|PC:PC|toout[9], cpu:CPU|PC:PC|toout[8]                             ;
+; cpu:CPU|PC:PC|toout[0]            ; Stuck at GND              ; cpu:CPU|PC:PC|toout[25], cpu:CPU|PC:PC|toout[22], cpu:CPU|PC:PC|toout[19], ;
+;                                   ; due to stuck port data_in ; cpu:CPU|PC:PC|toout[16], cpu:CPU|PC:PC|toout[13], cpu:CPU|PC:PC|toout[10], ;
+;                                   ;                           ; cpu:CPU|PC:PC|toout[7]                                                     ;
+; display7Seg:DISPLAY0|saida7seg[5] ; Stuck at VCC              ; display7Seg:DISPLAY2|saida7seg[2]                                          ;
+;                                   ; due to stuck port data_in ;                                                                            ;
+; display7Seg:DISPLAY0|saida7seg[3] ; Stuck at VCC              ; display7Seg:DISPLAY2|saida7seg[3]                                          ;
+;                                   ; due to stuck port data_in ;                                                                            ;
+; display7Seg:DISPLAY0|saida7seg[1] ; Stuck at VCC              ; display7Seg:DISPLAY2|saida7seg[4]                                          ;
+;                                   ; due to stuck port data_in ;                                                                            ;
+; display7Seg:DISPLAY1|saida7seg[2] ; Stuck at VCC              ; display7Seg:DISPLAY2|saida7seg[0]                                          ;
+;                                   ; due to stuck port data_in ;                                                                            ;
+; display7Seg:DISPLAY1|saida7seg[0] ; Stuck at VCC              ; display7Seg:DISPLAY2|saida7seg[1]                                          ;
+;                                   ; due to stuck port data_in ;                                                                            ;
++-----------------------------------+---------------------------+----------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 69    ;
+; Number of registers using Synchronous Clear  ; 5     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 0     ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 69    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+; 4:1                ; 30 bits   ; 60 LEs        ; 30 LEs               ; 30 LEs                 ; Yes        ; |mips|cpu:CPU|PC:PC|toout[13]               ;
+; 11:1               ; 2 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; No         ; |mips|display7Seg:DISPLAY2|rascSaida7seg[4] ;
+; 13:1               ; 2 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; No         ; |mips|display7Seg:DISPLAY2|rascSaida7seg[0] ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
+
+
++----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Top-level Entity: |mips ;
++----------------------------+-------+---------------------------------+
+; Parameter Name             ; Value ; Type                            ;
++----------------------------+-------+---------------------------------+
+; larguraBarramentoEnderecos ; 32    ; Signed Integer                  ;
+; larguraBarramentoDados     ; 32    ; Signed Integer                  ;
+; quantidadeChaves           ; 18    ; Signed Integer                  ;
+; quantidadeDisplays         ; 8     ; Signed Integer                  ;
+; quantidadeBotoes           ; 3     ; Signed Integer                  ;
++----------------------------+-------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU ;
++----------------------------+-------+-----------------+
+; Parameter Name             ; Value ; Type            ;
++----------------------------+-------+-----------------+
+; largurabarramentodados     ; 32    ; Signed Integer  ;
+; largurabarramentoenderecos ; 32    ; Signed Integer  ;
+; quantidadechaves           ; 18    ; Signed Integer  ;
+; quantidadebotoes           ; 3     ; Signed Integer  ;
++----------------------------+-------+-----------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|rom:ROM ;
++-----------------+-------+------------------------------------+
+; Parameter Name  ; Value ; Type                               ;
++-----------------+-------+------------------------------------+
+; datawidth       ; 32    ; Signed Integer                     ;
+; addrwidth       ; 32    ; Signed Integer                     ;
+; memoryaddrwidth ; 6     ; Signed Integer                     ;
++-----------------+-------+------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|bancoRegistradores:BR ;
++------------------------+-------+-------------------------------------------+
+; Parameter Name         ; Value ; Type                                      ;
++------------------------+-------+-------------------------------------------+
+; largurabarramentodados ; 32    ; Signed Integer                            ;
+; larguraendbancoregs    ; 5     ; Signed Integer                            ;
++------------------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|PC:PC ;
++------------------------+-------+---------------------------+
+; Parameter Name         ; Value ; Type                      ;
++------------------------+-------+---------------------------+
+; largurabarramentodados ; 32    ; Signed Integer            ;
++------------------------+-------+---------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|somadorConstante:SC ;
++------------------------+-------+-----------------------------------------+
+; Parameter Name         ; Value ; Type                                    ;
++------------------------+-------+-----------------------------------------+
+; largurabarramentodados ; 32    ; Signed Integer                          ;
++------------------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|somadorVariavel:SV ;
++------------------------+-------+----------------------------------------+
+; Parameter Name         ; Value ; Type                                   ;
++------------------------+-------+----------------------------------------+
+; largurabarramentodados ; 32    ; Signed Integer                         ;
++------------------------+-------+----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|muxSomador:MUXSOMADOR ;
++------------------------+-------+-------------------------------------------+
+; Parameter Name         ; Value ; Type                                      ;
++------------------------+-------+-------------------------------------------+
+; largurabarramentodados ; 32    ; Signed Integer                            ;
++------------------------+-------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|muxULA:muxULA ;
++------------------------+-------+-----------------------------------+
+; Parameter Name         ; Value ; Type                              ;
++------------------------+-------+-----------------------------------+
+; largurabarramentodados ; 32    ; Signed Integer                    ;
++------------------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|extensorSinal:EXTENSOR ;
++--------------------+-------+------------------------------------------------+
+; Parameter Name     ; Value ; Type                                           ;
++--------------------+-------+------------------------------------------------+
+; larguradadoentrada ; 16    ; Signed Integer                                 ;
+; larguradadosaida   ; 32    ; Signed Integer                                 ;
++--------------------+-------+------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: cpu:CPU|ULA:ULA ;
++------------------------+-------+-----------------------------+
+; Parameter Name         ; Value ; Type                        ;
++------------------------+-------+-----------------------------+
+; largurabarramentodados ; 32    ; Signed Integer              ;
++------------------------+-------+-----------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: single_port_ram:RAM ;
++----------------+-------+-----------------------------------------+
+; Parameter Name ; Value ; Type                                    ;
++----------------+-------+-----------------------------------------+
+; datawidth      ; 32    ; Signed Integer                          ;
+; addrwidth      ; 32    ; Signed Integer                          ;
++----------------+-------+-----------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "display7Seg:DISPLAY0" ;
++---------------+-------+----------+---------------+
+; Port          ; Type  ; Severity ; Details       ;
++---------------+-------+----------+---------------+
+; dadohex[3..2] ; Input ; Info     ; Stuck at VCC  ;
+; dadohex[1]    ; Input ; Info     ; Stuck at GND  ;
+; dadohex[0]    ; Input ; Info     ; Stuck at VCC  ;
+; habilita      ; Input ; Info     ; Stuck at VCC  ;
++---------------+-------+----------+---------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "display7Seg:DISPLAY1" ;
++---------------+-------+----------+---------------+
+; Port          ; Type  ; Severity ; Details       ;
++---------------+-------+----------+---------------+
+; dadohex[3..2] ; Input ; Info     ; Stuck at VCC  ;
+; dadohex[1]    ; Input ; Info     ; Stuck at GND  ;
+; dadohex[0]    ; Input ; Info     ; Stuck at VCC  ;
+; habilita      ; Input ; Info     ; Stuck at VCC  ;
++---------------+-------+----------+---------------+
+
+
++------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "cpu:CPU|rom:ROM"                                                                            ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port         ; Type   ; Severity ; Details                                                                             ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+; dado[31..26] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++--------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 69                          ;
+;     ENA               ; 64                          ;
+;     ENA SCLR          ; 5                           ;
+; arriav_lcell_comb     ; 101                         ;
+;     arith             ; 42                          ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 3                           ;
+;         3 data inputs ; 29                          ;
+;         4 data inputs ; 3                           ;
+;     normal            ; 59                          ;
+;         0 data inputs ; 2                           ;
+;         2 data inputs ; 4                           ;
+;         3 data inputs ; 32                          ;
+;         5 data inputs ; 13                          ;
+;         6 data inputs ; 8                           ;
+; boundary_port         ; 104                         ;
+;                       ;                             ;
+; Max LUT depth         ; 5.10                        ;
+; Average LUT depth     ; 3.64                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
 
 
 +-------------------------------+
@@ -161,7 +1490,7 @@ refer to the applicable agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Tue Oct 22 14:41:11 2019
+    Info: Processing started: Thu Oct 24 00:37:25 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
@@ -169,11 +1498,11 @@ Info (12021): Found 2 design units, including 1 entities, in source file bancore
     Info (12022): Found design unit 1: bancoRegistradores-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/bancoRegistradores.vhd Line: 38
     Info (12023): Found entity 1: bancoRegistradores File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/bancoRegistradores.vhd Line: 13
 Info (12021): Found 2 design units, including 1 entities, in source file pc.vhd
-    Info (12022): Found design unit 1: PC-arch File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/PC.vhd Line: 22
+    Info (12022): Found design unit 1: PC-arch File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/PC.vhd Line: 23
     Info (12023): Found entity 1: PC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/PC.vhd Line: 10
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
-    Info (12022): Found design unit 1: romMif-initFileROM File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 28
-    Info (12023): Found entity 1: romMif File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 12
+    Info (12022): Found design unit 1: rom-initFileROM File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 28
+    Info (12023): Found entity 1: rom File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
     Info (12022): Found design unit 1: UC-UCarch File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/UC.vhd Line: 27
     Info (12023): Found entity 1: UC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/UC.vhd Line: 9
@@ -184,13 +1513,182 @@ Info (12021): Found 2 design units, including 1 entities, in source file muxpc.v
     Info (12022): Found design unit 1: muxPC-comportamentoMuxPc File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/MuxPC.vhd Line: 26
     Info (12023): Found entity 1: muxPC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/MuxPC.vhd Line: 12
 Info (12021): Found 2 design units, including 1 entities, in source file single_port_ram.vhd
-    Info (12022): Found design unit 1: single_port_ram-rtl File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd Line: 20
-    Info (12023): Found entity 1: single_port_ram File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd Line: 5
-Error (12007): Top-level design entity "mips" is undefined
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4845 megabytes
-    Error: Processing ended: Tue Oct 22 14:41:37 2019
-    Error: Elapsed time: 00:00:26
-    Error: Total CPU time (on all processors): 00:00:57
+    Info (12022): Found design unit 1: single_port_ram-rtl File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd Line: 25
+    Info (12023): Found entity 1: single_port_ram File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd Line: 10
+Info (12021): Found 2 design units, including 1 entities, in source file mips.vhd
+    Info (12022): Found design unit 1: mips-estrutural File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 30
+    Info (12023): Found entity 1: mips File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file extensorsinal.vhd
+    Info (12022): Found design unit 1: extensorSinal-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/extensorSinal.vhd Line: 24
+    Info (12023): Found entity 1: extensorSinal File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/extensorSinal.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file muxula.vhd
+    Info (12022): Found design unit 1: muxULA-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/muxULA.vhd Line: 23
+    Info (12023): Found entity 1: muxULA File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/muxULA.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file muxsomador.vhd
+    Info (12022): Found design unit 1: muxSomador-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/muxSomador.vhd Line: 23
+    Info (12023): Found entity 1: muxSomador File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/muxSomador.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file somadorconstante.vhd
+    Info (12022): Found design unit 1: somadorConstante-arc_somadorConstante File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/somadorConstante.vhd Line: 23
+    Info (12023): Found entity 1: somadorConstante File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/somadorConstante.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file somadorvariavel.vhd
+    Info (12022): Found design unit 1: somadorVariavel-arc_somadorConstante File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/somadorVariavel.vhd Line: 24
+    Info (12023): Found entity 1: somadorVariavel File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/somadorVariavel.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file cpu.vhd
+    Info (12022): Found design unit 1: cpu-estrutural File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 30
+    Info (12023): Found entity 1: cpu File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 8
+Warning (12019): Can't analyze file -- file AND.vhd is missing
+Info (12021): Found 2 design units, including 1 entities, in source file portaand.vhd
+    Info (12022): Found design unit 1: portaAND-arch File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/portaAND.vhd Line: 19
+    Info (12023): Found entity 1: portaAND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/portaAND.vhd Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file botoes.vhd
+    Info (12023): Found entity 1: botoes File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/botoes.vhd Line: 10
+Info (12021): Found 1 design units, including 1 entities, in source file chaves.vhd
+    Info (12023): Found entity 1: chaves File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/chaves.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file display7seg.vhd
+    Info (12022): Found design unit 1: display7Seg-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/display7Seg.vhd Line: 21
+    Info (12023): Found entity 1: display7Seg File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/display7Seg.vhd Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file leds.vhd
+    Info (12023): Found entity 1: leds File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/leds.vhd Line: 11
+Info (12021): Found 2 design units, including 1 entities, in source file switches.vhd
+    Info (12022): Found design unit 1: switches-swArch File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/switches.vhd Line: 28
+    Info (12023): Found entity 1: switches File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/switches.vhd Line: 12
+Info (12127): Elaborating entity "mips" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(38): used implicit default value for signal "LCD_US" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(38): used implicit default value for signal "LCD_DS" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(38): used implicit default value for signal "LCD_UM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(38): used implicit default value for signal "LCD_DM" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(38): used implicit default value for signal "LCD_UH" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 38
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(38): used implicit default value for signal "LCD_DH" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 38
+Warning (10873): Using initial value X (don't care) for net "LEDG[7]" at mips.vhd(25) File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 25
+Info (12128): Elaborating entity "cpu" for hierarchy "cpu:CPU" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at cpu.vhd(21): used implicit default value for signal "barramentoEnderecoSaida" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 21
+Info (12128): Elaborating entity "rom" for hierarchy "cpu:CPU|rom:ROM" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 45
+Warning (10639): VHDL warning at ROM.vhd(30): constant value overflow File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 30
+Warning (10445): VHDL Subtype or Type Declaration warning at ROM.vhd(30): subtype or type has null range File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 30
+Warning (10541): VHDL Signal Declaration warning at ROM.vhd(31): used implicit default value for signal "content" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 31
+Info (12128): Elaborating entity "bancoRegistradores" for hierarchy "cpu:CPU|bancoRegistradores:BR" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 54
+Info (12128): Elaborating entity "PC" for hierarchy "cpu:CPU|PC:PC" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 71
+Info (12128): Elaborating entity "somadorConstante" for hierarchy "cpu:CPU|somadorConstante:SC" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 87
+Info (12128): Elaborating entity "somadorVariavel" for hierarchy "cpu:CPU|somadorVariavel:SV" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 99
+Info (12128): Elaborating entity "muxSomador" for hierarchy "cpu:CPU|muxSomador:MUXSOMADOR" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 112
+Info (12128): Elaborating entity "muxULA" for hierarchy "cpu:CPU|muxULA:muxULA" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 125
+Info (12128): Elaborating entity "portaAND" for hierarchy "cpu:CPU|portaAND:PORTA_AND" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 139
+Info (12128): Elaborating entity "extensorSinal" for hierarchy "cpu:CPU|extensorSinal:EXTENSOR" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 148
+Info (12128): Elaborating entity "ULA" for hierarchy "cpu:CPU|ULA:ULA" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/cpu.vhd Line: 157
+Info (12128): Elaborating entity "single_port_ram" for hierarchy "single_port_ram:RAM" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 60
+Warning (10639): VHDL warning at single_port_ram.vhd(28): constant value overflow File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd Line: 28
+Warning (10445): VHDL Subtype or Type Declaration warning at single_port_ram.vhd(28): subtype or type has null range File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/single_port_ram.vhd Line: 28
+Info (12128): Elaborating entity "display7Seg" for hierarchy "display7Seg:DISPLAY2" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 74
+Info (276014): Found 2 instances of uninferred RAM logic
+    Info (276007): RAM logic "cpu:CPU|bancoRegistradores:BR|registrador" is uninferred due to asynchronous read logic File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/bancoRegistradores.vhd Line: 44
+    Info (276004): RAM logic "cpu:CPU|rom:ROM|content" is uninferred due to inappropriate RAM size File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/ROM.vhd Line: 31
+Warning (113028): 253 out of 256 addresses are uninitialized. The Quartus Prime software will initialize them to "0". There are 1 warnings found, and 1 warnings are reported. File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/binario.mif Line: 1
+    Warning (113027): Addresses ranging from 3 to 255 are not initialized File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/binario.mif Line: 1
+Critical Warning (127004): Memory depth (2) in the design file differs from memory depth (256) in the Memory Initialization File "C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/binario.mif" -- truncated remaining initial content value to fit RAM
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX0[1]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX0[2]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[3]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[4]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[5]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX3[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX6[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "HEX7[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 24
+    Warning (13410): Pin "LEDG[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 25
+    Warning (13410): Pin "LEDG[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 25
+    Warning (13410): Pin "LEDG[7]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 25
+    Warning (13410): Pin "LEDR[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[7]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[8]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[9]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[10]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[11]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[12]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[13]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[14]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[15]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[16]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+    Warning (13410): Pin "LEDR[17]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 26
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 953 registers lost all their fanouts during netlist optimizations.
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Warning (21074): Design contains 15 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "SW[4]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[5]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[6]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[7]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[8]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[9]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[10]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[11]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[12]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[13]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[14]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[15]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[16]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "SW[17]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 20
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/elijo/Desktop/DesComp/MIPS/Instrucoes_I/mips.vhd Line: 22
+Info (21057): Implemented 267 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 22 input pins
+    Info (21059): Implemented 82 output pins
+    Info (21061): Implemented 163 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 110 warnings
+    Info: Peak virtual memory: 4860 megabytes
+    Info: Processing ended: Thu Oct 24 00:37:54 2019
+    Info: Elapsed time: 00:00:29
+    Info: Total CPU time (on all processors): 00:01:01
 
 

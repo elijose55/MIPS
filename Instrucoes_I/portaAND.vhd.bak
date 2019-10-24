@@ -1,0 +1,28 @@
+-- Design de Computadores
+-- developed by Pedro Azambuja e Eli Jose
+-- file: somadorConstante.vhd
+-- date: 08/10/2019
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity portaAND is
+	generic (
+		larguraBarramentoDados		: natural := 32
+	);
+	port 
+	(
+		inA	   	: in std_logic_vector  (larguraBarramentoDados-1 downto 0);
+		inB			: in std_logic_vector  (larguraBarramentoDados-1 downto 0);
+		outC 			: out std_logic_vector (larguraBarramentoDados-1 downto 0)
+	);
+
+end entity;
+
+architecture arc_somadorConstante of portaAND is
+begin
+	-- Soma a saida do somador constante com a saida do extensor de sinal
+
+	outSomador <= inSomador + inExtensor;
+
+end arc_somadorConstante;

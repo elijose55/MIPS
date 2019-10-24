@@ -1,17 +1,22 @@
+-- Design de Computadores
+-- developed by Pedro Azambuja e Eli Jose
+-- file: muxULA.vhd
+-- date: 08/10/2019
+
 library ieee;
 use ieee.std_logic_1164.all;
 
 entity muxULA is
     generic (
         -- Total de bits das entradas e saidas
-        larguraDados    : natural  :=   32
+        larguraBarramentoDados    : natural  :=   32
     );
     port (
-        entradaBancoReg_MUX    : in  std_logic_vector(larguraDados-1 downto 0);
-        entradaExtensor    : in  std_logic_vector(larguraDados-1 downto 0);
+        entradaBancoReg_MUX    : in  std_logic_vector(larguraBarramentoDados-1 downto 0);
+        entradaExtensor    : in  std_logic_vector(larguraBarramentoDados-1 downto 0);
         seletor   : in  std_logic;
 
-        saida_MUX   : out std_logic_vector(larguraDados-1 downto 0)
+        saida_MUX   : out std_logic_vector(larguraBarramentoDados-1 downto 0)
     );
 end entity;
 

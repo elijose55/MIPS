@@ -1,10 +1,15 @@
+-- Design de Computadores
+-- developed by Pedro Azambuja e Eli Jose
+-- file: extensorSinal.vhd
+-- date: 08/10/2019
+
 library ieee;
 use ieee.std_logic_1164.all;
 
 entity extensorSinal is
     generic
     (
-        larguraDadoEntrada : natural  :=    32;
+        larguraDadoEntrada : natural  :=    16;
         larguraDadoSaida   : natural  :=    32
     );
     port
@@ -16,7 +21,7 @@ entity extensorSinal is
     );
 end entity;
 
-architecture comportamento of estendeSinalGenerico is
+architecture comportamento of extensorSinal is
 begin
     process (estendeSinal_IN) is
     begin
