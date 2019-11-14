@@ -82,7 +82,7 @@ package constantesMIPS is
     constant ctrlTipoBEQ:    ctrlWorld_t := aluOpSub & "00XXX010";
     constant ctrlTipoLW:     ctrlWorld_t := aluOpAdd & "10110100";
     constant ctrlTipoSW:     ctrlWorld_t := aluOpAdd & "01XXX100";
-	 constant ctrlNop:     ctrlWorld_t := aluOpAdd & "00000000";
+	 constant ctrlNop:     ctrlWorld_t := "111" & "11111111";
 
 end package constantesMIPS;
 

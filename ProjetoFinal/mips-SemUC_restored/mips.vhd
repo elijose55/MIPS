@@ -9,7 +9,9 @@ use work.constantesMIPS.all;
 entity mips is
 	port
     (
-        clk			            : IN  STD_LOGIC
+        clk			            : IN  STD_LOGIC;
+		  saidaUla : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+		  saidaPC : OUT STD_LOGIC_VECTOR(DATA_WIDTH -1 DOWNTO 0)
     );
 end entity;
 
@@ -35,7 +37,9 @@ begin
 	(
         clk	                    => clk,
         pontosDeControle        => pontosDeControle,
-        instrucao               => instrucao
+        instrucao               => instrucao,
+		  saidaUla => saidaUla,
+		  programCounter => saidaPC
     );
 
     UC : entity work.uc 
@@ -44,5 +48,4 @@ begin
         opcode              	=> opcode,
         pontosDeControle    	=> pontosDeControle
     );
-
 end architecture;

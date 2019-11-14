@@ -15,17 +15,17 @@ entity UC_ULA is
     );
 end entity;
 
-architecture bhv of ALUControl is
+architecture bhv of UC_ULA is
 begin
-	process(ULAOp, funct)
+	process(ALUop, funct)
 	begin
-		if(ULAOp = aluOpAdd) then
+		if(ALUop = aluOpAdd) then
 			ALUctr <= ulaCtrlAdd;
 			
-		elsif (ULAOp = aluOpSub) then
+		elsif (ALUop = aluOpSub) then
 			ALUctr <= ulaCtrlSub;
 			
-		elsif(ULAOp = readFunctULA) then
+		elsif(ALUop = readFunctULA) then
 			if(funct = functADD) then
 				ALUctr <= ulaCtrlAdd;
 			elsif(funct = functSUB) then
@@ -40,7 +40,7 @@ begin
 				ALUctr <= "0000";
 			end if;
 		else 
-			ULActrl <= "0000";
+			ALUctr <= "0000";
 		end if;
 	end process;
 end bhv;

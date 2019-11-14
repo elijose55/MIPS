@@ -14,7 +14,10 @@ entity fluxo_dados is
     (
         clk			            : IN STD_LOGIC;
         pontosDeControle        : IN STD_LOGIC_VECTOR(CONTROLWORD_WIDTH-1 DOWNTO 0);
-        instrucao               : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0)
+        instrucao               : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+		  saidaUla : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+		  programCounter : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0)
+		  
     );
 end entity;
 
@@ -261,5 +264,8 @@ begin
             seletor  => sel_mux_jump,
             saida    => saida_mux_jump
         );
+		  
+		  saidaUla <= saida_ula;
+		  programCounter <= PC_s;
 
 end architecture;

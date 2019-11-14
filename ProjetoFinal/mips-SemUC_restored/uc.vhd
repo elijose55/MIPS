@@ -17,22 +17,21 @@ end entity;
 architecture bhv of uc is
 
 
-constant tipoR : std_logic_vector(opcodeWidth-1 downto 0) := "000000"; -- Opcode da Instrucao Branch on Equal
-constant BEQ : std_logic_vector(opcodeWidth-1 downto 0) := "000100"; -- Opcode da Instrucao Branch on Equal
-constant LW : std_logic_vector(opcodeWidth-1 downto 0) := "100011"; -- Opcode da Instrucao Load Word
-constant SW : std_logic_vector(opcodeWidth-1 downto 0) := "101011"; -- Opcode da Instrucao Store Word
-constant J : std_logic_vector(opcodeWidth-1 downto 0) := "000010"; -- Opcode da Instrucao Store Word
+constant tipoR : std_logic_vector(OPCODE_WIDTH-1 downto 0) := "000000"; -- Opcode da Instrucao Branch on Equal
+constant BEQ : std_logic_vector(OPCODE_WIDTH-1 downto 0) := "000100"; -- Opcode da Instrucao Branch on Equal
+constant LW : std_logic_vector(OPCODE_WIDTH-1 downto 0) := "100011"; -- Opcode da Instrucao Load Word
+constant SW : std_logic_vector(OPCODE_WIDTH-1 downto 0) := "101011"; -- Opcode da Instrucao Store Word
+constant J : std_logic_vector(OPCODE_WIDTH-1 downto 0) := "000010"; -- Opcode da Instrucao Store Word
 
 begin
-    process(opcode)
+--    process(opcode)
 	 
 	pontosDeControle <= ctrlTipoR when opcode = tipoR else
-	ctrlTipoJ when opcode = tipoR else
 	ctrlTipoBEQ when opcode = BEQ else
 	ctrlTipoLW when opcode = LW else
 	ctrlTipoSW when opcode = SW else
 	ctrlTipoJ when opcode = J else
-	ctrlNop
+	ctrlNop;
 								
 
 
