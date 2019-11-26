@@ -1,5 +1,5 @@
 Analysis & Synthesis report for mips
-Thu Nov 14 15:53:54 2019
+Tue Nov 26 16:17:30 2019
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -34,9 +34,16 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
  26. Parameter Settings for User Entity Instance: fluxo_dados:FD|muxGenerico2:mux_jump
  27. Port Connectivity Checks: "fluxo_dados:FD|Registrador:PC"
  28. Port Connectivity Checks: "fluxo_dados:FD"
- 29. Post-Synthesis Netlist Statistics for Top Partition
- 30. Elapsed Time Per Partition
- 31. Analysis & Synthesis Messages
+ 29. Port Connectivity Checks: "conversorHex7Seg:DISPLAY7"
+ 30. Port Connectivity Checks: "conversorHex7Seg:DISPLAY6"
+ 31. Port Connectivity Checks: "conversorHex7Seg:DISPLAY3"
+ 32. Port Connectivity Checks: "conversorHex7Seg:DISPLAY2"
+ 33. Port Connectivity Checks: "conversorHex7Seg:DISPLAY1"
+ 34. Port Connectivity Checks: "conversorHex7Seg:DISPLAY0"
+ 35. Port Connectivity Checks: "edgeDetector:BTN_RST"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
 
 
 
@@ -62,16 +69,16 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Nov 14 15:53:54 2019       ;
+; Analysis & Synthesis Status        ; Successful - Tue Nov 26 16:17:30 2019       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; mips                                        ;
 ; Top-level Entity Name              ; mips                                        ;
 ; Family                             ; Cyclone IV E                                ;
-; Total logic elements               ; 4,194                                       ;
-;     Total combinational functions  ; 2,059                                       ;
-;     Dedicated logic registers      ; 2,238                                       ;
-; Total registers                    ; 2238                                        ;
-; Total pins                         ; 65                                          ;
+; Total logic elements               ; 4,197                                       ;
+;     Total combinational functions  ; 2,062                                       ;
+;     Dedicated logic registers      ; 2,239                                       ;
+; Total registers                    ; 2239                                        ;
+; Total pins                         ; 125                                         ;
 ; Total virtual pins                 ; 0                                           ;
 ; Total memory bits                  ; 0                                           ;
 ; Embedded Multiplier 9-bit elements ; 0                                           ;
@@ -172,72 +179,76 @@ refer to the applicable agreement for further details.
 +----------------------------+-------------+
 ; Processors                 ; Number      ;
 +----------------------------+-------------+
-; Number detected on machine ; 4           ;
-; Maximum allowed            ; 2           ;
+; Number detected on machine ; 8           ;
+; Maximum allowed            ; 4           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 2           ;
+; Maximum used               ; 4           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
 ;     Processor 2            ;   0.1%      ;
+;     Processor 3            ;   0.1%      ;
+;     Processor 4            ;   0.1%      ;
 +----------------------------+-------------+
 
 
-+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                                          ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                   ; Library ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
-; ULA.vhd                          ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/ULA.vhd                  ;         ;
-; UC_ULA.vhd                       ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/UC_ULA.vhd               ;         ;
-; uc.vhd                           ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/uc.vhd                   ;         ;
-; somador.vhd                      ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/somador.vhd              ;         ;
-; soma4.vhd                        ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/soma4.vhd                ;         ;
-; single_port_RAM.vhd              ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd      ;         ;
-; shift2_imediato.vhd              ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/shift2_imediato.vhd      ;         ;
-; shift2.vhd                       ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/shift2.vhd               ;         ;
-; ROM.vhd                          ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/ROM.vhd                  ;         ;
-; Registrador.vhd                  ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/Registrador.vhd          ;         ;
-; muxGenerico2.vhd                 ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/muxGenerico2.vhd         ;         ;
-; mips.vhd                         ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd                 ;         ;
-; fluxo_dados.vhd                  ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd          ;         ;
-; estendeSinalGenerico.vhd         ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/estendeSinalGenerico.vhd ;         ;
-; constantesMIPS.vhd               ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/constantesMIPS.vhd       ;         ;
-; bancoRegistradores.vhd           ; yes             ; User VHDL File  ; C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd   ;         ;
-+----------------------------------+-----------------+-----------------+------------------------------------------------------------------------------------------------+---------+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                                  ; Library ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
+; ULA.vhd                          ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/ULA.vhd                  ;         ;
+; UC_ULA.vhd                       ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/UC_ULA.vhd               ;         ;
+; uc.vhd                           ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/uc.vhd                   ;         ;
+; somador.vhd                      ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/somador.vhd              ;         ;
+; soma4.vhd                        ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/soma4.vhd                ;         ;
+; single_port_RAM.vhd              ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd      ;         ;
+; shift2_imediato.vhd              ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/shift2_imediato.vhd      ;         ;
+; shift2.vhd                       ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/shift2.vhd               ;         ;
+; ROM.vhd                          ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/ROM.vhd                  ;         ;
+; Registrador.vhd                  ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/Registrador.vhd          ;         ;
+; muxGenerico2.vhd                 ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/muxGenerico2.vhd         ;         ;
+; fluxo_dados.vhd                  ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd          ;         ;
+; estendeSinalGenerico.vhd         ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/estendeSinalGenerico.vhd ;         ;
+; constantesMIPS.vhd               ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/constantesMIPS.vhd       ;         ;
+; bancoRegistradores.vhd           ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd   ;         ;
+; mips.vhd                         ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd                 ;         ;
+; edgeDetector.vhd                 ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/edgeDetector.vhd         ;         ;
+; conversorHex7Seg.vhd             ; yes             ; User VHDL File  ; C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/conversorHex7Seg.vhd     ;         ;
++----------------------------------+-----------------+-----------------+-----------------------------------------------------------------------------------------------+---------+
 
 
-+---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 4,194     ;
-;                                             ;           ;
-; Total combinational functions               ; 2059      ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 1780      ;
-;     -- 3 input functions                    ; 201       ;
-;     -- <=2 input functions                  ; 78        ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 1939      ;
-;     -- arithmetic mode                      ; 120       ;
-;                                             ;           ;
-; Total registers                             ; 2238      ;
-;     -- Dedicated logic registers            ; 2238      ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 65        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; clk~input ;
-; Maximum fan-out                             ; 2238      ;
-; Total fan-out                               ; 14722     ;
-; Average fan-out                             ; 3.33      ;
-+---------------------------------------------+-----------+
++--------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary                              ;
++---------------------------------------------+----------------------------+
+; Resource                                    ; Usage                      ;
++---------------------------------------------+----------------------------+
+; Estimated Total logic elements              ; 4,197                      ;
+;                                             ;                            ;
+; Total combinational functions               ; 2062                       ;
+; Logic element usage by number of LUT inputs ;                            ;
+;     -- 4 input functions                    ; 1781                       ;
+;     -- 3 input functions                    ; 201                        ;
+;     -- <=2 input functions                  ; 80                         ;
+;                                             ;                            ;
+; Logic elements by mode                      ;                            ;
+;     -- normal mode                          ; 1942                       ;
+;     -- arithmetic mode                      ; 120                        ;
+;                                             ;                            ;
+; Total registers                             ; 2239                       ;
+;     -- Dedicated logic registers            ; 2239                       ;
+;     -- I/O registers                        ; 0                          ;
+;                                             ;                            ;
+; I/O pins                                    ; 125                        ;
+;                                             ;                            ;
+; Embedded Multiplier 9-bit elements          ; 0                          ;
+;                                             ;                            ;
+; Maximum fan-out node                        ; edgeDetector:BTN_CLK|saida ;
+; Maximum fan-out                             ; 2238                       ;
+; Total fan-out                               ; 14791                      ;
+; Average fan-out                             ; 3.25                       ;
++---------------------------------------------+----------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -245,14 +256,15 @@ refer to the applicable agreement for further details.
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------------+--------------+
 ; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                               ; Entity Name        ; Library Name ;
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+---------------------------------------------------+--------------------+--------------+
-; |mips                                ; 2059 (0)            ; 2238 (0)                  ; 0           ; 0            ; 0       ; 0         ; 65   ; 0            ; |mips                                             ; mips               ; work         ;
-;    |fluxo_dados:FD|                  ; 2052 (17)           ; 2238 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD                              ; fluxo_dados        ; work         ;
+; |mips                                ; 2062 (0)            ; 2239 (0)                  ; 0           ; 0            ; 0       ; 0         ; 125  ; 0            ; |mips                                             ; mips               ; work         ;
+;    |edgeDetector:BTN_CLK|            ; 2 (2)               ; 1 (1)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|edgeDetector:BTN_CLK                        ; edgeDetector       ; work         ;
+;    |fluxo_dados:FD|                  ; 2053 (17)           ; 2238 (0)                  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD                              ; fluxo_dados        ; work         ;
 ;       |ROM:ROM|                      ; 20 (20)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|ROM:ROM                      ; ROM                ; work         ;
 ;       |Registrador:PC|               ; 32 (32)             ; 30 (30)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|Registrador:PC               ; Registrador        ; work         ;
 ;       |UC_ULA:UCULA|                 ; 7 (7)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|UC_ULA:UCULA                 ; UC_ULA             ; work         ;
 ;       |ULA:ULA|                      ; 168 (168)           ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|ULA:ULA                      ; ULA                ; work         ;
 ;       |bancoRegistradores:BR|        ; 246 (246)           ; 160 (160)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|bancoRegistradores:BR        ; bancoRegistradores ; work         ;
-;       |muxGenerico2:mux_Banco_Ula|   ; 36 (36)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|muxGenerico2:mux_Banco_Ula   ; muxGenerico2       ; work         ;
+;       |muxGenerico2:mux_Banco_Ula|   ; 37 (37)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|muxGenerico2:mux_Banco_Ula   ; muxGenerico2       ; work         ;
 ;       |muxGenerico2:mux_Ula_Memoria| ; 32 (32)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|muxGenerico2:mux_Ula_Memoria ; muxGenerico2       ; work         ;
 ;       |muxGenerico2:mux_jump|        ; 10 (10)             ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|muxGenerico2:mux_jump        ; muxGenerico2       ; work         ;
 ;       |single_port_RAM:RAM|          ; 1424 (1424)         ; 2048 (2048)               ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |mips|fluxo_dados:FD|single_port_RAM:RAM          ; single_port_RAM    ; work         ;
@@ -1143,7 +1155,7 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 2238  ;
+; Total registers                              ; 2239  ;
 ; Number of registers using Synchronous Clear  ; 0     ;
 ; Number of registers using Synchronous Load   ; 21    ;
 ; Number of registers using Asynchronous Clear ; 0     ;
@@ -1352,29 +1364,112 @@ Note: In order to hide this table in the UI and the text report file, please set
 +------------------+--------+----------+-------------------------------------------------------------------------------------+
 
 
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:DISPLAY7" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; dadohex  ; Input ; Info     ; Stuck at GND            ;
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:DISPLAY6" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; dadohex  ; Input ; Info     ; Stuck at GND            ;
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:DISPLAY3" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; dadohex  ; Input ; Info     ; Stuck at GND            ;
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:DISPLAY2" ;
++---------------+-------+----------+--------------------+
+; Port          ; Type  ; Severity ; Details            ;
++---------------+-------+----------+--------------------+
+; dadohex[3..1] ; Input ; Info     ; Stuck at VCC       ;
+; dadohex[0]    ; Input ; Info     ; Stuck at GND       ;
+; apaga         ; Input ; Info     ; Stuck at GND       ;
+; negativo      ; Input ; Info     ; Stuck at GND       ;
+; overflow      ; Input ; Info     ; Stuck at GND       ;
++---------------+-------+----------+--------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:DISPLAY1" ;
++----------+-------+----------+-------------------------+
+; Port     ; Type  ; Severity ; Details                 ;
++----------+-------+----------+-------------------------+
+; dadohex  ; Input ; Info     ; Stuck at VCC            ;
+; apaga    ; Input ; Info     ; Stuck at GND            ;
+; negativo ; Input ; Info     ; Stuck at GND            ;
+; overflow ; Input ; Info     ; Stuck at GND            ;
++----------+-------+----------+-------------------------+
+
+
++-------------------------------------------------------+
+; Port Connectivity Checks: "conversorHex7Seg:DISPLAY0" ;
++---------------+-------+----------+--------------------+
+; Port          ; Type  ; Severity ; Details            ;
++---------------+-------+----------+--------------------+
+; dadohex[3..1] ; Input ; Info     ; Stuck at GND       ;
+; dadohex[0]    ; Input ; Info     ; Stuck at VCC       ;
+; apaga         ; Input ; Info     ; Stuck at GND       ;
+; negativo      ; Input ; Info     ; Stuck at GND       ;
+; overflow      ; Input ; Info     ; Stuck at GND       ;
++---------------+-------+----------+--------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "edgeDetector:BTN_RST"                                                                ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; saida ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
 +-----------------------------------------------------+
 ; Post-Synthesis Netlist Statistics for Top Partition ;
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 65                          ;
-; cycloneiii_ff         ; 2238                        ;
+; boundary_port         ; 125                         ;
+; cycloneiii_ff         ; 2239                        ;
 ;     ENA               ; 2208                        ;
 ;     SLD               ; 21                          ;
-;     plain             ; 9                           ;
-; cycloneiii_lcell_comb ; 2060                        ;
+;     plain             ; 10                          ;
+; cycloneiii_lcell_comb ; 2064                        ;
 ;     arith             ; 120                         ;
 ;         2 data inputs ; 29                          ;
 ;         3 data inputs ; 91                          ;
-;     normal            ; 1940                        ;
-;         0 data inputs ; 1                           ;
-;         1 data inputs ; 10                          ;
-;         2 data inputs ; 39                          ;
+;     normal            ; 1944                        ;
+;         0 data inputs ; 2                           ;
+;         1 data inputs ; 11                          ;
+;         2 data inputs ; 40                          ;
 ;         3 data inputs ; 110                         ;
-;         4 data inputs ; 1780                        ;
+;         4 data inputs ; 1781                        ;
 ;                       ;                             ;
 ; Max LUT depth         ; 18.70                       ;
-; Average LUT depth     ; 10.69                       ;
+; Average LUT depth     ; 10.68                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1383,7 +1478,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:08     ;
+; Top            ; 00:00:06     ;
 +----------------+--------------+
 
 
@@ -1393,93 +1488,165 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Thu Nov 14 15:53:28 2019
+    Info: Processing started: Tue Nov 26 16:17:11 2019
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off mips -c mips
-Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (20030): Parallel compilation is enabled and will use 4 of the 4 processors detected
 Info (12021): Found 2 design units, including 1 entities, in source file ula.vhd
-    Info (12022): Found design unit 1: ULA-behv File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/ULA.vhd Line: 24
-    Info (12023): Found entity 1: ULA File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/ULA.vhd Line: 9
+    Info (12022): Found design unit 1: ULA-behv File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/ULA.vhd Line: 24
+    Info (12023): Found entity 1: ULA File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/ULA.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file uc_ula.vhd
-    Info (12022): Found design unit 1: UC_ULA-bhv File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/UC_ULA.vhd Line: 18
-    Info (12023): Found entity 1: UC_ULA File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/UC_ULA.vhd Line: 9
+    Info (12022): Found design unit 1: UC_ULA-bhv File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/UC_ULA.vhd Line: 18
+    Info (12023): Found entity 1: UC_ULA File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/UC_ULA.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file uc.vhd
-    Info (12022): Found design unit 1: uc-bhv File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/uc.vhd Line: 17
-    Info (12023): Found entity 1: uc File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/uc.vhd Line: 9
+    Info (12022): Found design unit 1: uc-bhv File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/uc.vhd Line: 17
+    Info (12023): Found entity 1: uc File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/uc.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file somador.vhd
-    Info (12022): Found design unit 1: somador-comportamento File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/somador.vhd Line: 18
-    Info (12023): Found entity 1: somador File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/somador.vhd Line: 5
+    Info (12022): Found design unit 1: somador-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/somador.vhd Line: 18
+    Info (12023): Found entity 1: somador File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/somador.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file soma4.vhd
-    Info (12022): Found design unit 1: soma4-comportamento File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/soma4.vhd Line: 18
-    Info (12023): Found entity 1: soma4 File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/soma4.vhd Line: 5
+    Info (12022): Found design unit 1: soma4-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/soma4.vhd Line: 18
+    Info (12023): Found entity 1: soma4 File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/soma4.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file single_port_ram.vhd
-    Info (12022): Found design unit 1: single_port_RAM-rtl File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd Line: 20
-    Info (12023): Found entity 1: single_port_RAM File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd Line: 5
+    Info (12022): Found design unit 1: single_port_RAM-rtl File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd Line: 20
+    Info (12023): Found entity 1: single_port_RAM File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file shift2_imediato.vhd
-    Info (12022): Found design unit 1: shift2_imediato-comportamento File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/shift2_imediato.vhd Line: 16
-    Info (12023): Found entity 1: shift2_imediato File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/shift2_imediato.vhd Line: 4
+    Info (12022): Found design unit 1: shift2_imediato-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/shift2_imediato.vhd Line: 16
+    Info (12023): Found entity 1: shift2_imediato File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/shift2_imediato.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file shift2.vhd
-    Info (12022): Found design unit 1: shift2-comportamento File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/shift2.vhd Line: 16
-    Info (12023): Found entity 1: shift2 File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/shift2.vhd Line: 4
+    Info (12022): Found design unit 1: shift2-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/shift2.vhd Line: 16
+    Info (12023): Found entity 1: shift2 File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/shift2.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file rom.vhd
-    Info (12022): Found design unit 1: ROM-assincrona File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/ROM.vhd Line: 15
-    Info (12023): Found entity 1: ROM File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/ROM.vhd Line: 6
+    Info (12022): Found design unit 1: ROM-assincrona File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/ROM.vhd Line: 15
+    Info (12023): Found entity 1: ROM File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/ROM.vhd Line: 6
 Info (12021): Found 2 design units, including 1 entities, in source file registrador.vhd
-    Info (12022): Found design unit 1: Registrador-rtl File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/Registrador.vhd Line: 26
-    Info (12023): Found entity 1: Registrador File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/Registrador.vhd Line: 8
+    Info (12022): Found design unit 1: Registrador-rtl File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/Registrador.vhd Line: 26
+    Info (12023): Found entity 1: Registrador File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/Registrador.vhd Line: 8
 Info (12021): Found 2 design units, including 1 entities, in source file muxgenerico2.vhd
-    Info (12022): Found design unit 1: muxGenerico2-comportamento File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/muxGenerico2.vhd Line: 17
-    Info (12023): Found entity 1: muxGenerico2 File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/muxGenerico2.vhd Line: 4
-Info (12021): Found 2 design units, including 1 entities, in source file mips.vhd
-    Info (12022): Found design unit 1: mips-estrutural File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 18
-    Info (12023): Found entity 1: mips File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 9
+    Info (12022): Found design unit 1: muxGenerico2-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/muxGenerico2.vhd Line: 17
+    Info (12023): Found entity 1: muxGenerico2 File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/muxGenerico2.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file fluxo_dados.vhd
-    Info (12022): Found design unit 1: fluxo_dados-estrutural File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 24
-    Info (12023): Found entity 1: fluxo_dados File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 9
+    Info (12022): Found design unit 1: fluxo_dados-estrutural File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 24
+    Info (12023): Found entity 1: fluxo_dados File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 9
 Info (12021): Found 2 design units, including 1 entities, in source file estendesinalgenerico.vhd
-    Info (12022): Found design unit 1: estendeSinalGenerico-comportamento File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/estendeSinalGenerico.vhd Line: 19
-    Info (12023): Found entity 1: estendeSinalGenerico File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/estendeSinalGenerico.vhd Line: 4
+    Info (12022): Found design unit 1: estendeSinalGenerico-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/estendeSinalGenerico.vhd Line: 19
+    Info (12023): Found entity 1: estendeSinalGenerico File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/estendeSinalGenerico.vhd Line: 4
 Info (12021): Found 1 design units, including 0 entities, in source file constantesmips.vhd
-    Info (12022): Found design unit 1: constantesMIPS File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/constantesMIPS.vhd Line: 5
+    Info (12022): Found design unit 1: constantesMIPS File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/constantesMIPS.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file clock_generator.vhd
-    Info (12022): Found design unit 1: clock_generator-test File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/clock_generator.vhd Line: 18
-    Info (12023): Found entity 1: clock_generator File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/clock_generator.vhd Line: 4
+    Info (12022): Found design unit 1: clock_generator-test File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/clock_generator.vhd Line: 18
+    Info (12023): Found entity 1: clock_generator File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/clock_generator.vhd Line: 4
 Info (12021): Found 2 design units, including 1 entities, in source file bancoregistradores.vhd
-    Info (12022): Found design unit 1: bancoRegistradores-rtl File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd Line: 30
-    Info (12023): Found entity 1: bancoRegistradores File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd Line: 6
+    Info (12022): Found design unit 1: bancoRegistradores-rtl File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd Line: 30
+    Info (12023): Found entity 1: bancoRegistradores File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file mips.vhd
+    Info (12022): Found design unit 1: mips-estrutural File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 21
+    Info (12023): Found entity 1: mips File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file edgedetector.vhd
+    Info (12022): Found design unit 1: edgeDetector-bordaDescida File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/edgeDetector.vhd Line: 10
+    Info (12023): Found entity 1: edgeDetector File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/edgeDetector.vhd Line: 4
+Info (12021): Found 2 design units, including 1 entities, in source file conversorhex7seg.vhd
+    Info (12022): Found design unit 1: conversorHex7Seg-comportamento File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/conversorHex7Seg.vhd Line: 17
+    Info (12023): Found entity 1: conversorHex7Seg File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/conversorHex7Seg.vhd Line: 4
 Info (12127): Elaborating entity "mips" for the top level hierarchy
-Info (12128): Elaborating entity "fluxo_dados" for hierarchy "fluxo_dados:FD" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 35
-Info (12128): Elaborating entity "bancoRegistradores" for hierarchy "fluxo_dados:FD|bancoRegistradores:BR" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 87
-Info (12128): Elaborating entity "ULA" for hierarchy "fluxo_dados:FD|ULA:ULA" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 104
-Info (12128): Elaborating entity "UC_ULA" for hierarchy "fluxo_dados:FD|UC_ULA:UCULA" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 116
-Info (12128): Elaborating entity "Registrador" for hierarchy "fluxo_dados:FD|Registrador:PC" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 125
-Info (12128): Elaborating entity "somador" for hierarchy "fluxo_dados:FD|somador:Somador_imediato" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 137
-Info (12128): Elaborating entity "soma4" for hierarchy "fluxo_dados:FD|soma4:Somador" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 147
-Info (12128): Elaborating entity "ROM" for hierarchy "fluxo_dados:FD|ROM:ROM" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 157
-Info (12128): Elaborating entity "single_port_RAM" for hierarchy "fluxo_dados:FD|single_port_RAM:RAM" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 168
-Info (12128): Elaborating entity "estendeSinalGenerico" for hierarchy "fluxo_dados:FD|estendeSinalGenerico:extensor" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 183
-Info (12128): Elaborating entity "shift2_imediato" for hierarchy "fluxo_dados:FD|shift2_imediato:shift" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 193
-Info (12128): Elaborating entity "shift2" for hierarchy "fluxo_dados:FD|shift2:shift_jump" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 203
-Info (12128): Elaborating entity "muxGenerico2" for hierarchy "fluxo_dados:FD|muxGenerico2:mux_Ula_Memoria" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 213
-Info (12128): Elaborating entity "muxGenerico2" for hierarchy "fluxo_dados:FD|muxGenerico2:mux_Rd_Rt" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 224
-Info (12128): Elaborating entity "uc" for hierarchy "uc:UC" File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 45
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(17): used implicit default value for signal "HEX4" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+Warning (10541): VHDL Signal Declaration warning at mips.vhd(17): used implicit default value for signal "HEX5" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+Warning (10036): Verilog HDL or VHDL warning at mips.vhd(29): object "btn_reset" assigned a value but never read File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 29
+Warning (10540): VHDL Signal Declaration warning at mips.vhd(30): used explicit default value for signal "PCdisplay" because signal was never assigned a value File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 30
+Info (12128): Elaborating entity "edgeDetector" for hierarchy "edgeDetector:BTN_RST" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 41
+Info (12128): Elaborating entity "conversorHex7Seg" for hierarchy "conversorHex7Seg:DISPLAY0" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 44
+Info (12128): Elaborating entity "fluxo_dados" for hierarchy "fluxo_dados:FD" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 52
+Info (12128): Elaborating entity "bancoRegistradores" for hierarchy "fluxo_dados:FD|bancoRegistradores:BR" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 87
+Info (12128): Elaborating entity "ULA" for hierarchy "fluxo_dados:FD|ULA:ULA" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 104
+Info (12128): Elaborating entity "UC_ULA" for hierarchy "fluxo_dados:FD|UC_ULA:UCULA" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 116
+Info (12128): Elaborating entity "Registrador" for hierarchy "fluxo_dados:FD|Registrador:PC" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 125
+Info (12128): Elaborating entity "somador" for hierarchy "fluxo_dados:FD|somador:Somador_imediato" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 137
+Info (12128): Elaborating entity "soma4" for hierarchy "fluxo_dados:FD|soma4:Somador" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 147
+Info (12128): Elaborating entity "ROM" for hierarchy "fluxo_dados:FD|ROM:ROM" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 157
+Info (12128): Elaborating entity "single_port_RAM" for hierarchy "fluxo_dados:FD|single_port_RAM:RAM" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 168
+Info (12128): Elaborating entity "estendeSinalGenerico" for hierarchy "fluxo_dados:FD|estendeSinalGenerico:extensor" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 183
+Info (12128): Elaborating entity "shift2_imediato" for hierarchy "fluxo_dados:FD|shift2_imediato:shift" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 193
+Info (12128): Elaborating entity "shift2" for hierarchy "fluxo_dados:FD|shift2:shift_jump" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 203
+Info (12128): Elaborating entity "muxGenerico2" for hierarchy "fluxo_dados:FD|muxGenerico2:mux_Ula_Memoria" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 213
+Info (12128): Elaborating entity "muxGenerico2" for hierarchy "fluxo_dados:FD|muxGenerico2:mux_Rd_Rt" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/fluxo_dados.vhd Line: 224
+Info (12128): Elaborating entity "uc" for hierarchy "uc:UC" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 64
 Info (276014): Found 2 instances of uninferred RAM logic
-    Info (276007): RAM logic "fluxo_dados:FD|bancoRegistradores:BR|bancoReg" is uninferred due to asynchronous read logic File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd Line: 56
-    Info (276007): RAM logic "fluxo_dados:FD|single_port_RAM:RAM|ram" is uninferred due to asynchronous read logic File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd Line: 23
+    Info (276007): RAM logic "fluxo_dados:FD|bancoRegistradores:BR|bancoReg" is uninferred due to asynchronous read logic File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/bancoRegistradores.vhd Line: 56
+    Info (276007): RAM logic "fluxo_dados:FD|single_port_RAM:RAM|ram" is uninferred due to asynchronous read logic File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/single_port_RAM.vhd Line: 23
 Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "saidaPC[0]" is stuck at GND File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 14
-    Warning (13410): Pin "saidaPC[1]" is stuck at GND File: C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 14
+    Warning (13410): Pin "saidaPC[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 14
+    Warning (13410): Pin "saidaPC[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 14
+    Warning (13410): Pin "HEX0[0]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX0[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX0[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX0[3]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX0[4]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX0[5]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX0[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[0]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[1]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[2]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX1[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[1]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[2]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX2[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX3[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX4[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX5[6]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX6[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[0]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[1]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[2]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[3]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[4]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[5]" is stuck at GND File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
+    Warning (13410): Pin "HEX7[6]" is stuck at VCC File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 17
 Info (286030): Timing-Driven Synthesis is running
 Info (17049): 768 registers lost all their fanouts during netlist optimizations.
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 4323 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 1 input pins
-    Info (21059): Implemented 64 output pins
-    Info (21061): Implemented 4258 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 3 warnings
-    Info: Peak virtual memory: 4800 megabytes
-    Info: Processing ended: Thu Nov 14 15:53:54 2019
-    Info: Elapsed time: 00:00:26
-    Info: Total CPU time (on all processors): 00:00:47
+Warning (21074): Design contains 3 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "KEY[0]" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 15
+    Warning (15610): No output dependent on input pin "KEY[2]" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 15
+    Warning (15610): No output dependent on input pin "KEY[3]" File: C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/mips.vhd Line: 15
+Info (21057): Implemented 4386 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 5 input pins
+    Info (21059): Implemented 120 output pins
+    Info (21061): Implemented 4261 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 67 warnings
+    Info: Peak virtual memory: 4810 megabytes
+    Info: Processing ended: Tue Nov 26 16:17:30 2019
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:32
 
 

@@ -1,0 +1,265 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "saidaUla[0]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[1]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[2]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[3]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[4]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[5]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[6]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[7]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[8]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[9]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[10]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[11]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[12]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[13]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[14]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[15]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[16]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[17]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[18]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[19]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[20]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[21]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[22]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[23]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[24]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[25]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[26]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[27]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[28]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[29]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[30]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaUla[31]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[4]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[5]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[6]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[7]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[8]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[9]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[10]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[11]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[12]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[13]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[14]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[15]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[16]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[17]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[18]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[19]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[20]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[21]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[22]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[23]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[24]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[25]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[26]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[27]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[28]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[29]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[30]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[31]",
+					"strict" : false
+				},
+				{
+					"name" : "KEY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "CLOCK_50",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
