@@ -132,6 +132,14 @@
 					"strict" : false
 				},
 				{
+					"name" : "saidaPC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "saidaPC[1]",
+					"strict" : false
+				},
+				{
 					"name" : "saidaPC[2]",
 					"strict" : false
 				},

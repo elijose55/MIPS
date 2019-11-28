@@ -16,7 +16,10 @@ entity fluxo_dados is
         pontosDeControle        : IN STD_LOGIC_VECTOR(CONTROLWORD_WIDTH-1 DOWNTO 0);
         instrucao               : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
 		  saidaUla : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
-		  programCounter : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0)
+		  programCounter : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
+		  
+		  PCdisplay		  : OUT STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0);
+		  dadoDisplay	      : OUT STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)
 		  
     );
 end entity;
@@ -55,6 +58,12 @@ architecture estrutural of fluxo_dados is
      
     -- Controle da ULA
     signal ULActr : std_logic_vector(CTRL_ALU_WIDTH-1 downto 0);
+	 
+	 -- PipeLines
+	 signal entradaP1, saidaP1 : std_logic_vector(63 downto 0)  := (others=> '0');
+	 signal entradaP2, saidaP2 : std_logic_vector(148 downto 0) := (others=> '0');
+	 signal entradaP3, saidaP3 : std_logic_vector(107 downto 0) := (others=> '0');
+	 signal entradaP4, saidaP4 : std_logic_vector(70 downto 0)  := (others=> '0');
 
     -- Codigos da palavra de controle:
     alias ULAop             : std_logic_vector(ALU_OP_WIDTH-1 downto 0) is pontosDeControle(10 downto 8);
@@ -78,10 +87,57 @@ begin
 
     instrucao <= instrucao_s;
 
-    sel_mux_beq <= sel_beq AND Z_out;
+    sel_mux_beq <= saidaP3(104) AND saidaP3(69);
+	 --sel_mux_beq <= sel_beq AND Z_out;
+	 	
 
     -- Ajuste do PC para jump (concatena com imediato multiplicado por 4)
     PC_4_concat_imed <= PC_mais_4(31 downto 28) & saida_shift_jump;
+	 
+	 
+	 -- Pipeline Registrador 1:
+	 -- Instrucao && PC+4
+	 entradaP1(31 downto 0)  <= instrucao_s;
+	 entradaP1(63 downto 32) <= PC_mais_4;
+	 REG_P1: entity work.Registrador
+	 	 generic map(NUM_BITS=> 64)
+	 	 port map (clk=> clk, enable=> '1', reset=> '1', data_in=> entradaP1, data_out=> saidaP1);
+		 
+		 
+	-- Pipeline Registrador 2: 
+	entradaP2(4 downto 0)		<= saidaP1(20 downto 16);
+	entradaP2(9 downto 5)		<= saidaP1(15 downto 11);
+	entradaP2(41 downto 10)		<= sinal_ext;
+	entradaP2(73 downto 42)		<= RB;
+	entradaP2(105 downto 74)	<= RA;
+	entradaP2(137 downto 106)	<= saidaP1(63 downto 32);
+	entradaP2(138)					<= sel_mux_banco_ula;
+	entradaP2(141 downto 139)	<= ULAop;
+	entradaP2(142)					<= sel_mux_rd_rt;
+	entradaP2(143)					<= escreve_RAM;
+	entradaP2(144)					<= leitura_RAM;
+	entradaP2(145)					<= sel_beq;
+	entradaP2(146)					<= sel_mux_ula_mem;
+	entradaP2(147)					<= escreve_RC;
+	entradaP2(148)					<= sel_mux_jump;
+	
+	REG_P2: entity work.registrador
+		generic map(NUM_BITS=> 149)
+		port map (clk=> clk, enable=> '1', reset=> '1', data_in=> entradaP2, data_out=> saidaP2);
+		
+		
+	-- Pipeline Registrador 3:
+	entradaP3(4 downto 0)		<= saida_mux_rd_rt;
+	entradaP3(36 downto 5)		<= saidaP2(73 downto 42);
+	entradaP3(68 downto 37)		<= saida_ula;
+	entradaP3(69)					<= Z_out;
+	entradaP3(101 downto 70)	<= PC_mais_4_mais_imediato;
+	entradaP3(107 downto 102)	<= saidaP2(148 downto 143);
+	
+	
+	REG_P3: entity work.registrador
+		generic map(NUM_BITS=> 108)
+		port map (clk=> clk, enable=> '1', reset=> '1', data_in=> entradaP3, data_out=> saidaP3);
 
     -- Banco de registradores
      BR: entity work.bancoRegistradores 
@@ -90,12 +146,16 @@ begin
             larguraEndBancoRegs => 5
         )
         port map (
-            enderecoA => RS_addr,
-            enderecoB => RT_addr,
-            enderecoC => saida_mux_rd_rt,
+            --enderecoA => RS_addr,
+            --enderecoB => RT_addr,
+            --enderecoC => saida_mux_rd_rt,
+				--escreveC     => escreve_RC,
+				enderecoA => saidaP1(25 downto 21),
+            enderecoB => saidaP1(20 downto 16),
+            enderecoC => entradaP3(4 downto 0),
             clk          => clk,
             dadoEscritaC => saida_mux_ula_mem, 
-            escreveC     => escreve_RC,
+            escreveC     => saidaP2(147),
             saidaA       => RA,
             saidaB       => RB
         );
@@ -106,7 +166,8 @@ begin
             NUM_BITS => DATA_WIDTH
         )
 		port map (
-            A   => RA,
+            --A   => RA,
+				A   => saidaP2(105 downto 74),
             B   => saida_mux_banco_ula,
             ctr => ULActr,
             C   => saida_ula,
@@ -117,7 +178,7 @@ begin
         port map
         (
             funct  => funct,
-            ALUop  => ULAop,
+            ALUop  => saidaP2(141 downto 139),
             ALUctr => ULActr
         );
      
@@ -140,7 +201,7 @@ begin
         )
 		port map (
             entradaA => entrada_somador_beq,
-            entradaB => PC_mais_4,
+            entradaB => saidaP2(63 downto 32),
             saida    => PC_mais_4_mais_imediato
         );
     
@@ -171,11 +232,13 @@ begin
             addrWidth => ADDR_WIDTH
         )
 		port map (
-            endereco    => saida_ula, 
-            we          => escreve_RAM,
-            re          => leitura_RAM,
+				--we          => escreve_RAM,
+				--re          => leitura_RAM,
+            endereco    => saidaP3(68 downto 37), 
+				we          => saidaP3(102),
+            re          => saidaP3(103),
             clk         => clk,
-            dado_write  => RB,
+            dado_write  => saidaP3(36 downto 5),
             dado_read   => dado_lido_mem
         ); 
 
@@ -186,7 +249,8 @@ begin
             larguraDadoSaida   => DATA_WIDTH
         )
 		port map (
-            estendeSinal_IN  => imediato,
+				--estendeSinal_IN  => imediato,
+            estendeSinal_IN  => saidaP1(15 downto 0),
             estendeSinal_OUT => sinal_ext 
         ); 
 
@@ -195,7 +259,7 @@ begin
             larguraDado => DATA_WIDTH
         )
 		port map (
-            shift_IN  => sinal_ext,
+            shift_IN  => saidaP2(41 downto 10),
             shift_OUT => entrada_somador_beq
         );
     
@@ -205,7 +269,8 @@ begin
             larguraDado => 26
         )
 		port map (
-            shift_IN  => instrucao_s(25 downto 0),
+				--shift_IN  => instrucao_s(25 downto 0),
+            shift_IN  => saidaP1(25 downto 0),
             shift_OUT => saida_shift_jump
         );
     
@@ -215,9 +280,10 @@ begin
             larguraDados => DATA_WIDTH
         )
 		port map (
+				--seletor  => sel_mux_ula_mem
             entradaA => saida_ula, 
             entradaB => dado_lido_mem, 
-            seletor  => sel_mux_ula_mem,
+            seletor  => saidaP2(146),
             saida    => saida_mux_ula_mem
         );
 	 
@@ -228,7 +294,7 @@ begin
 		port map (
             entradaA => RT_addr, 
             entradaB => RD_addr,
-            seletor  => sel_mux_rd_rt,
+            seletor  => saidaP2(142),
             saida    => saida_mux_rd_rt
         );
 	
@@ -237,9 +303,11 @@ begin
             larguraDados => DATA_WIDTH
         )
 		port map (
-            entradaA => RB, 
-            entradaB => sinal_ext,  
-            seletor  => sel_mux_banco_ula,
+		      --entradaA => RB, 
+            --entradaB => sinal_ext
+            entradaA => saidaP2(73 downto 42), 
+            entradaB => saidaP2(41 downto 10),  
+            seletor  => saidaP2(138),
             saida    => saida_mux_banco_ula
         );
 		
@@ -249,7 +317,7 @@ begin
         )
 		port map (
             entradaA => PC_mais_4,
-            entradaB => PC_mais_4_mais_imediato,
+            entradaB => saidaP3(101 downto 70),
             seletor  => sel_mux_beq,
             saida    => saida_mux_beq
         );
@@ -259,9 +327,10 @@ begin
             larguraDados => DATA_WIDTH
         )
 		port map (
+				--seletor  => sel_mux_jump,
             entradaA => saida_mux_beq,
             entradaB => PC_4_concat_imed,
-            seletor  => sel_mux_jump,
+            seletor  => saidaP2(148),
             saida    => saida_mux_jump
         );
 		  

@@ -56,7 +56,11 @@ begin
         pontosDeControle        => pontosDeControle,
         instrucao               => instrucao,
 		  saidaUla => saidaUla,
-		  programCounter => saidaPC
+		  programCounter => saidaPC,
+		  
+		  dadoDisplay => dadoDisplay,
+		  PCdisplay => PCdisplay
+		  
     );
 	 
 	 

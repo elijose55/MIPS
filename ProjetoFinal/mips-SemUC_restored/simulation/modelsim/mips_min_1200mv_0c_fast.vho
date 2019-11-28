@@ -16,7 +16,7 @@
 -- PROGRAM "Quartus Prime"
 -- VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
 
--- DATE "11/26/2019 16:18:34"
+-- DATE "11/28/2019 14:55:25"
 
 -- 
 -- Device: Altera EP4CE115F29C7 Package FBGA780
@@ -6720,7 +6720,7 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => VCC,
+	i => GND,
 	devoe => ww_devoe,
 	o => \HEX1[0]~output_o\);
 
@@ -6756,7 +6756,7 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => GND,
+	i => VCC,
 	devoe => ww_devoe,
 	o => \HEX1[3]~output_o\);
 
@@ -6792,7 +6792,7 @@ GENERIC MAP (
 	open_drain_output => "false")
 -- pragma translate_on
 PORT MAP (
-	i => VCC,
+	i => GND,
 	devoe => ww_devoe,
 	o => \HEX1[6]~output_o\);
 

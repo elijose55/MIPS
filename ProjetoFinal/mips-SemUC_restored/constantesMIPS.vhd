@@ -58,12 +58,12 @@ package constantesMIPS is
     constant ulaCtrlSlt : ctrlALU_t := "0111";
 
     -- Pontos de controle:
-    -- 7: escreve_RC
-    -- 6: escreve_RAM
-    -- 5: leitura_RAM
-    -- 4: sel_mux_ula_mem:      0 ULA 1 MEM         (escrita no REG)
-    -- 3: sel_mux_rd_rt:        0 RT_addr 1 RD_addr (endereço de escrita)
-    -- 2: sel_mux_banco_ula:    0 REG_B 1 imediato  (ULA opera com REG ou imediato)
+    -- 7: escreve_RC-
+    -- 6: escreve_RAM-
+    -- 5: leitura_RAM-
+    -- 4: sel_mux_ula_mem:      0 ULA 1 MEM         (escrita no REG)-
+    -- 3: sel_mux_rd_rt:        0 RT_addr 1 RD_addr (endereço de escrita)-
+    -- 2: sel_mux_banco_ula:    0 REG_B 1 imediato  (ULA opera com REG ou imediato)-
     -- 1: sel_mux_beq:          0 PC+4  1 PC+4+imediato
     -- 0: sel_mux_jump:         0 saida mux_beq 1 PC+4 & imediato
 
