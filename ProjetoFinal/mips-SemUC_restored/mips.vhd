@@ -9,7 +9,7 @@ use work.constantesMIPS.all;
 entity mips is
 	port
     (
-        CLOCK_50			            : IN  STD_LOGIC;
+        clk			            : IN  STD_LOGIC;
 		  saidaUla : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
 		  saidaPC : OUT STD_LOGIC_VECTOR(DATA_WIDTH -1 DOWNTO 0);
 		  KEY      : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- buttons 
@@ -38,8 +38,8 @@ begin
     -- CLOCK generator auxiliar para simulação
     -- CG : entity work.clock_generator port map (clk	=> clk);
 	 
-	 BTN_RST : entity work.edgeDetector port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => btn_reset);
-	 BTN_CLK : entity work.edgeDetector port map (clk => CLOCK_50, entrada => (not KEY(1)), saida => btn_clock);
+	 BTN_RST : entity work.edgeDetector port map (clk => clk, entrada => (not KEY(0)), saida => btn_reset);
+	 BTN_CLK : entity work.edgeDetector port map (clk => clk, entrada => (not KEY(1)), saida => btn_clock);
 	 
 	 DISPLAY0 : entity work.conversorHex7seg port map (saida7seg => HEX0, dadoHex => ULADisplay(3 DOWNTO 0));
 	 DISPLAY1 : entity work.conversorHex7seg port map (saida7seg => HEX1, dadoHex => ULADisplay(7 DOWNTO 4));
@@ -52,7 +52,7 @@ begin
     FD : entity work.fluxo_dados 
 	port map
 	(
-        clk	                    => btn_clock,
+        clk	                    => clk,
         pontosDeControle        => pontosDeControle,
         instrucao               => instrucao,
 		  saidaUla => saidaUla,

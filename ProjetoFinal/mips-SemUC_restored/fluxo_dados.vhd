@@ -58,6 +58,7 @@ architecture estrutural of fluxo_dados is
      
     -- Controle da ULA
     signal ULActr : std_logic_vector(CTRL_ALU_WIDTH-1 downto 0);
+	 signal fun : std_logic_vector(5 downto 0);
 	 
 	 -- PipeLines
 	 signal entradaP1, saidaP1 : std_logic_vector(63 downto 0)  := (others=> '0');
@@ -85,13 +86,15 @@ architecture estrutural of fluxo_dados is
 
 begin
 
-    instrucao <= instrucao_s;
+    instrucao <= saidaP1(31 DOWNTO 0);
+	 
 
     sel_mux_beq <= saidaP3(104) AND saidaP3(69);
 	 --sel_mux_beq <= sel_beq AND Z_out;
 	 
 	 PCdisplay <= PC_s;
 	 ULADisplay <= saida_ula;
+	 fun <= saidaP2(15 downto 10);
 	 	
 
     -- Ajuste do PC para jump (concatena com imediato multiplicado por 4)
@@ -123,6 +126,7 @@ begin
 	entradaP2(146)					<= sel_mux_ula_mem;
 	entradaP2(147)					<= escreve_RC;
 	entradaP2(148)					<= sel_mux_jump;
+
 	
 	REG_P2: entity work.registrador
 		generic map(NUM_BITS=> 149)
@@ -197,7 +201,7 @@ begin
     UCULA : entity work.uc_ula 
         port map
         (
-            funct  => funct,
+            funct  => fun,
             ALUop  => saidaP2(141 downto 139),
             ALUctr => ULActr
         );
@@ -222,7 +226,7 @@ begin
         )
 		port map (
             entradaA => entrada_somador_beq,
-            entradaB => saidaP2(63 downto 32),
+            entradaB => saidaP2(137 downto 106),
             saida    => PC_mais_4_mais_imediato
         );
     
@@ -313,8 +317,8 @@ begin
             larguraDados => REGBANK_ADDR_WIDTH
         )
 		port map (
-            entradaA => RT_addr, 
-            entradaB => RD_addr,
+            entradaA => saidaP4(4 downto 0), 
+            entradaB => saidaP4(9 downto 5),
             seletor  => saidaP2(142),
             saida    => saida_mux_rd_rt
         );

@@ -99,7 +99,7 @@ R24
 R16
 R17
 Emips
-Z25 w1573757706
+Z25 w1575052271
 R2
 R3
 R4
@@ -108,18 +108,18 @@ R6
 R7
 R8
 R9
-R0
+Z26 dC:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim
 R10
 R11
 l0
 L36
-VdE:Xk0=O:Nz^DjIh>ZAlP1
-!s100 d@06T]f5kDf1DZ=M=aOjX0
+Vaf@;HRonla9EOH]M?a_o<2
+!s100 jkkMemGd2:aVQe2zZ?OnD2
 R12
 32
-!s110 1573757707
+Z27 !s110 1575052272
 !i10b 1
-Z26 !s108 1573757707.000000
+Z28 !s108 1575052272.000000
 R14
 R15
 !i113 1
@@ -134,37 +134,37 @@ R6
 R7
 R8
 R9
-DEx4 work 4 mips 0 22 dE:Xk0=O:Nz^DjIh>ZAlP1
-l4511
-L44
-Vb0Zza::VM41]YIT0`14091
-!s100 XP]2MifX>3Q_[Q=;cWe=c0
+DEx4 work 4 mips 0 22 af@;HRonla9EOH]M?a_o<2
+l1200
+L53
+VOGT@j1BCHgkGgd@;:Yk533
+!s100 zPdV2@DCL2d>FH?VRiQ<m1
 R12
 32
-!s110 1573757708
+R27
 !i10b 1
-R26
+R28
 R14
 R15
 !i113 1
 R16
 R17
 Emips_vhd_vec_tst
-Z27 w1573757704
+Z29 w1575052269
 R7
 R8
-R0
-Z28 8Waveform2.vwf.vht
-Z29 FWaveform2.vwf.vht
+R26
+Z30 8Waveform2.vwf.vht
+Z31 FWaveform2.vwf.vht
 l0
 L31
 V9DlO:XLN`VbaHK^H76nVA3
 !s100 H7f7B9Gbj_T4GFE4m1]5D2
 R12
 32
-Z30 !s110 1573757709
+R27
 !i10b 1
-Z31 !s108 1573757709.000000
+R28
 Z32 !s90 -work|work|Waveform2.vwf.vht|
 Z33 !s107 Waveform2.vwf.vht|
 !i113 1
@@ -174,15 +174,15 @@ Amips_arch
 R7
 R8
 Z34 DEx4 work 16 mips_vhd_vec_tst 0 22 9DlO:XLN`VbaHK^H76nVA3
-l46
+l64
 L33
-VMj`o^6c^C`mR0VD:2REEa1
-!s100 ci`jhomHJRVmVK>DBRgnT1
+Z35 V<7am;AQHHjV^BiUG9hYmg2
+Z36 !s100 _ldjf0DfX5M2feX1UoKUk0
 R12
 32
-R30
+R27
 !i10b 1
-R31
+R28
 R32
 R33
 !i113 1

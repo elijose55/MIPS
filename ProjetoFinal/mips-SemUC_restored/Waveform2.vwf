@@ -1,8 +1,8 @@
 /*<simulation_settings>
-<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source="C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/Waveform2.vwf" --testbench_file="C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/Waveform2.vwf.vht"</ftestbench_cmd>
-<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source="C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/Waveform2.vwf" --testbench_file="C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/Waveform2.vwf.vht"</ttestbench_cmd>
-<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/" mips -c mips</fnetlist_cmd>
-<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/Pedro/Documents/Design/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/" mips -c mips</tnetlist_cmd>
+<ftestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source="C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/Waveform2.vwf" --testbench_file="C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/Waveform2.vwf.vht"</ftestbench_cmd>
+<ttestbench_cmd>quartus_eda --gen_testbench --tool=modelsim_oem --format=vhdl --write_settings_files=off mips -c mips --vector_source="C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/Waveform2.vwf" --testbench_file="C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/Waveform2.vwf.vht"</ttestbench_cmd>
+<fnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=on --flatten_buses=off --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/" mips -c mips</fnetlist_cmd>
+<tnetlist_cmd>quartus_eda --write_settings_files=off --simulation --functional=off --flatten_buses=off --timescale=1ps --tool=modelsim_oem --format=vhdl --output_directory="C:/Users/elijo/Desktop/DesComp/MIPS/ProjetoFinal/mips-SemUC_restored/simulation/qsim/" mips -c mips</tnetlist_cmd>
 <modelsim_script>onerror {exit -code 1}
 vlib work
 vcom -work work mips.vho
@@ -750,12 +750,14 @@ TRANSITION_LIST("clk")
 	NODE
 	{
 		REPEAT = 1;
+		LEVEL 1 FOR 10.0;
 		NODE
 		{
-			REPEAT = 50;
+			REPEAT = 49;
 			LEVEL 0 FOR 10.0;
 			LEVEL 1 FOR 10.0;
 		}
+		LEVEL 0 FOR 10.0;
 	}
 }
 

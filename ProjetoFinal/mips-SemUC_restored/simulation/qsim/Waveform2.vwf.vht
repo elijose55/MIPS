@@ -18,7 +18,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "11/14/2019 15:55:04"
+-- Generated on "11/29/2019 15:31:09"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          mips
 -- 
@@ -34,11 +34,29 @@ ARCHITECTURE mips_arch OF mips_vhd_vec_tst IS
 -- constants                                                 
 -- signals                                                   
 SIGNAL clk : STD_LOGIC;
+SIGNAL HEX0 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX1 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX2 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX3 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX4 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX5 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX6 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL HEX7 : STD_LOGIC_VECTOR(6 DOWNTO 0);
+SIGNAL KEY : STD_LOGIC_VECTOR(3 DOWNTO 0);
 SIGNAL saidaPC : STD_LOGIC_VECTOR(31 DOWNTO 0);
 SIGNAL saidaUla : STD_LOGIC_VECTOR(31 DOWNTO 0);
 COMPONENT mips
 	PORT (
 	clk : IN STD_LOGIC;
+	HEX0 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX1 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX2 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX3 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX4 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX5 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX6 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	HEX7 : OUT STD_LOGIC_VECTOR(6 DOWNTO 0);
+	KEY : IN STD_LOGIC_VECTOR(3 DOWNTO 0);
 	saidaPC : OUT STD_LOGIC_VECTOR(31 DOWNTO 0);
 	saidaUla : OUT STD_LOGIC_VECTOR(31 DOWNTO 0)
 	);
@@ -48,6 +66,15 @@ BEGIN
 	PORT MAP (
 -- list connections between master ports and signals
 	clk => clk,
+	HEX0 => HEX0,
+	HEX1 => HEX1,
+	HEX2 => HEX2,
+	HEX3 => HEX3,
+	HEX4 => HEX4,
+	HEX5 => HEX5,
+	HEX6 => HEX6,
+	HEX7 => HEX7,
+	KEY => KEY,
 	saidaPC => saidaPC,
 	saidaUla => saidaUla
 	);
@@ -55,12 +82,16 @@ BEGIN
 -- clk
 t_prcs_clk: PROCESS
 BEGIN
-LOOP
-	clk <= '0';
-	WAIT FOR 10000 ps;
 	clk <= '1';
 	WAIT FOR 10000 ps;
-	IF (NOW >= 1000000 ps) THEN WAIT; END IF;
-END LOOP;
+	FOR i IN 1 TO 49
+	LOOP
+		clk <= '0';
+		WAIT FOR 10000 ps;
+		clk <= '1';
+		WAIT FOR 10000 ps;
+	END LOOP;
+	clk <= '0';
+WAIT;
 END PROCESS t_prcs_clk;
 END mips_arch;
