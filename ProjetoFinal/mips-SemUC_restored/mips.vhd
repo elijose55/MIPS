@@ -27,7 +27,7 @@ architecture estrutural of mips is
     signal ALUctr               : STD_LOGIC_VECTOR(CTRL_ALU_WIDTH-1 DOWNTO 0);
 	 
 	 signal btn_reset, btn_clock : STD_LOGIC := '0';
-	 signal dadoDisplay, saidaDisplay, PCdisplay: std_logic_vector(31 downto 0) := (others=> '0'); 
+	 signal ULADisplay, saidaDisplay, PCdisplay: std_logic_vector(31 downto 0) := (others=> '0'); 
 	 signal enableDisplay: std_logic := '1';
 
     alias opcode : std_logic_vector(OPCODE_WIDTH-1 downto 0) is instrucao(31 DOWNTO 26);
@@ -41,9 +41,9 @@ begin
 	 BTN_RST : entity work.edgeDetector port map (clk => CLOCK_50, entrada => (not KEY(0)), saida => btn_reset);
 	 BTN_CLK : entity work.edgeDetector port map (clk => CLOCK_50, entrada => (not KEY(1)), saida => btn_clock);
 	 
-	 DISPLAY0 : entity work.conversorHex7seg port map (saida7seg => HEX0, dadoHex => "0001"); -- saidaUla(3 DOWNTO 0)
-	 DISPLAY1 : entity work.conversorHex7seg port map (saida7seg => HEX1, dadoHex => "1111");	-- saidaUla(7 DOWNTO 4)
-	 DISPLAY2 : entity work.conversorHex7seg port map (saida7seg => HEX2, dadoHex => "1110");	 
+	 DISPLAY0 : entity work.conversorHex7seg port map (saida7seg => HEX0, dadoHex => ULADisplay(3 DOWNTO 0));
+	 DISPLAY1 : entity work.conversorHex7seg port map (saida7seg => HEX1, dadoHex => ULADisplay(7 DOWNTO 4));
+	 DISPLAY2 : entity work.conversorHex7seg port map (saida7seg => HEX2, dadoHex => "0000");	 
 	 DISPLAY3 : entity work.conversorHex7seg port map (saida7seg => HEX3, dadoHex => "0000");	 
 	 
 	 DISPLAY6 : entity work.conversorHex7seg port map (saida7seg => HEX6, dadoHex => PCdisplay(3 DOWNTO 0));
@@ -58,7 +58,7 @@ begin
 		  saidaUla => saidaUla,
 		  programCounter => saidaPC,
 		  
-		  dadoDisplay => dadoDisplay,
+		  ULADisplay => ULADisplay,
 		  PCdisplay => PCdisplay
 		  
     );

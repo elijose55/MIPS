@@ -19,7 +19,7 @@ entity fluxo_dados is
 		  programCounter : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
 		  
 		  PCdisplay		  : OUT STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0);
-		  dadoDisplay	      : OUT STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)
+		  ULADisplay	      : OUT STD_LOGIC_VECTOR (DATA_WIDTH-1 DOWNTO 0)
 		  
     );
 end entity;
@@ -89,6 +89,9 @@ begin
 
     sel_mux_beq <= saidaP3(104) AND saidaP3(69);
 	 --sel_mux_beq <= sel_beq AND Z_out;
+	 
+	 PCdisplay <= PC_s;
+	 ULADisplay <= saida_ula;
 	 	
 
     -- Ajuste do PC para jump (concatena com imediato multiplicado por 4)
@@ -132,12 +135,29 @@ begin
 	entradaP3(68 downto 37)		<= saida_ula;
 	entradaP3(69)					<= Z_out;
 	entradaP3(101 downto 70)	<= PC_mais_4_mais_imediato;
-	entradaP3(107 downto 102)	<= saidaP2(148 downto 143);
+	entradaP3(102)					<= saidaP2(143);
+	entradaP3(103)					<= saidaP2(144);
+	entradaP3(104)					<= saidaP2(145);
+	entradaP3(105)					<= saidaP2(146);
+	entradaP3(106)					<= saidaP2(147);
+	entradaP3(107)					<= saidaP2(148);
 	
 	
 	REG_P3: entity work.registrador
 		generic map(NUM_BITS=> 108)
 		port map (clk=> clk, enable=> '1', reset=> '1', data_in=> entradaP3, data_out=> saidaP3);
+		
+		
+	-- Pipeline Registrador 3:
+	entradaP4(4 downto 0) 	<= saidaP3(4 downto 0);
+	entradaP4(36 downto 5) 	<= saidaP3(68 downto 37);
+	entradaP4(68 downto 37) <= dado_lido_mem;
+	entradaP4(69)				<= saidaP3(105);
+	entradaP4(70)				<= saidaP3(106);
+	
+	REG_P4: entity work.registrador
+		generic map(NUM_BITS=> 71)
+		port map (clk=> clk, enable=> '1', reset=> '1', data_in=> entradaP4, data_out=> saidaP4);
 
     -- Banco de registradores
      BR: entity work.bancoRegistradores 
@@ -152,10 +172,10 @@ begin
 				--escreveC     => escreve_RC,
 				enderecoA => saidaP1(25 downto 21),
             enderecoB => saidaP1(20 downto 16),
-            enderecoC => entradaP3(4 downto 0),
+            enderecoC => saidaP4(4 downto 0),
             clk          => clk,
             dadoEscritaC => saida_mux_ula_mem, 
-            escreveC     => saidaP2(147),
+            escreveC     => saidaP4(70),
             saidaA       => RA,
             saidaB       => RB
         );
@@ -194,6 +214,7 @@ begin
             enable   => '1',
             reset    => '1' -- reset negado
         );
+		  
     
      Somador_imediato: entity work.somador 
         generic map (
@@ -281,9 +302,9 @@ begin
         )
 		port map (
 				--seletor  => sel_mux_ula_mem
-            entradaA => saida_ula, 
-            entradaB => dado_lido_mem, 
-            seletor  => saidaP2(146),
+            entradaA => saidaP4(36 downto 5), 
+            entradaB => saidaP4(68 downto 37), 
+            seletor  => saidaP4(69),
             saida    => saida_mux_ula_mem
         );
 	 
