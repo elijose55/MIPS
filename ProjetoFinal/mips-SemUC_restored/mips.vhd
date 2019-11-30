@@ -9,12 +9,10 @@ use work.constantesMIPS.all;
 entity mips is
 	port
     (
-        clk			            : IN  STD_LOGIC;
-		  saidaUla : OUT STD_LOGIC_VECTOR(DATA_WIDTH-1 DOWNTO 0);
-		  saidaPC : OUT STD_LOGIC_VECTOR(DATA_WIDTH -1 DOWNTO 0);
-		  KEY      : IN STD_LOGIC_VECTOR(3 DOWNTO 0); -- buttons 
+        CLOCK_50			            : IN  STD_LOGIC;
+		  KEY1      : IN STD_LOGIC; -- buttons 
 		  
-		  HEX0, HEX1, HEX2, HEX3, HEX4, HEX5, HEX6, HEX7: OUT STD_LOGIC_VECTOR(6 downto 0) -- 7-segments Display
+		  HEX0, HEX1, HEX2, HEX3, HEX6, HEX7: OUT STD_LOGIC_VECTOR(6 downto 0) -- 7-segments Display
     );
 end entity;
 
@@ -35,11 +33,7 @@ architecture estrutural of mips is
 	 
 begin
 
-    -- CLOCK generator auxiliar para simulação
-    -- CG : entity work.clock_generator port map (clk	=> clk);
-	 
-	 BTN_RST : entity work.edgeDetector port map (clk => clk, entrada => (not KEY(0)), saida => btn_reset);
-	 BTN_CLK : entity work.edgeDetector port map (clk => clk, entrada => (not KEY(1)), saida => btn_clock);
+	 BTN_CLK : entity work.edgeDetector port map (clk => CLOCK_50, entrada => (not KEY1), saida => btn_clock);
 	 
 	 DISPLAY0 : entity work.conversorHex7seg port map (saida7seg => HEX0, dadoHex => ULADisplay(3 DOWNTO 0));
 	 DISPLAY1 : entity work.conversorHex7seg port map (saida7seg => HEX1, dadoHex => ULADisplay(7 DOWNTO 4));
@@ -52,11 +46,11 @@ begin
     FD : entity work.fluxo_dados 
 	port map
 	(
-        clk	                    => clk,
+        clk	                    => btn_clock,
         pontosDeControle        => pontosDeControle,
         instrucao               => instrucao,
-		  saidaUla => saidaUla,
-		  programCounter => saidaPC,
+		  saidaUla => OPEN,
+		  programCounter => OPEN,
 		  
 		  ULADisplay => ULADisplay,
 		  PCdisplay => PCdisplay

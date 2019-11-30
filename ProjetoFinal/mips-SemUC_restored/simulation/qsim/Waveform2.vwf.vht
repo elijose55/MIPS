@@ -18,7 +18,7 @@
 -- the top level entity of the current Quartus project .The user can use this   
 -- testbench to simulate his design using a third-party simulation tool .       
 -- *****************************************************************************
--- Generated on "11/29/2019 15:31:09"
+-- Generated on "11/29/2019 17:55:26"
                                                              
 -- Vhdl Test Bench(with test vectors) for design  :          mips
 -- 
